@@ -1,0 +1,10 @@
+name: 'tickets'
+version: 0.0.1
+description: A ticket commerce application
+author: Jack Murphy jack@rightisleft.com
+homepage: https://www.rightisleft.com
+environment:
+  sdk: '>=1.0.0 <2.0.0'
+dependencies:
+  json_object: "1.0.19"
+  mongo_dart: "0.1.46"

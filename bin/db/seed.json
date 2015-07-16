@@ -1,0 +1,374 @@
+{
+    "Routes": [
+        {
+            "route": "SAN_LAX",
+            "duration": 45,
+            "price1": 29,
+            "price2": 49,
+            "price3": 79,
+            "seats": 7
+        },
+        {
+            "route": "SAN_SFO",
+            "duration": 140,
+            "price1": 49,
+            "price2": 79,
+            "price3": 99,
+            "seats": 7
+        },
+        {
+            "route": "SAN_OAK",
+            "duration": 150,
+            "price1": 49,
+            "price2": 79,
+            "price3": 99,
+            "seats": 7
+        },
+        {
+            "route": "SAN_SMF",
+            "duration": 190,
+            "price1": 59,
+            "price2": 99,
+            "price3": 109,
+            "seats": 7
+        },
+        {
+            "route": "LAX_SAN",
+            "duration": 50,
+            "price1": 29,
+            "price2": 49,
+            "price3": 79,
+            "seats": 7
+        },
+        {
+            "route": "LAX_SFO",
+            "duration": 120,
+            "price1": 29,
+            "price2": 49,
+            "price3": 79,
+            "seats": 7
+        },
+        {
+            "route": "LAX_OAK",
+            "duration": 130,
+            "price1": 29,
+            "price2": 49,
+            "price3": 79,
+            "seats": 7
+        },
+        {
+            "route": "LAX_SMF",
+            "duration": 170,
+            "price1": 39,
+            "price2": 59,
+            "price3": 89,
+            "seats": 7
+        },
+        {
+            "route": "OAK_SAN",
+            "duration": 160,
+            "price1": 49,
+            "price2": 79,
+            "price3": 99,
+            "seats": 7
+        },
+        {
+            "route": "OAK_LAX",
+            "duration": 140,
+            "price1": 39,
+            "price2": 69,
+            "price3": 89,
+            "seats": 7
+        },
+        {
+            "route": "OAK_SMF",
+            "duration": 40,
+            "price1": 19,
+            "price2": 39,
+            "price3": 59,
+            "seats": 7
+        },
+        {
+            "route": "SFO_SAN",
+            "duration": 145,
+            "price1": 49,
+            "price2": 79,
+            "price3": 99,
+            "seats": 7
+        },
+        {
+            "route": "SFO_LAX",
+            "duration": 125,
+            "price1": 29,
+            "price2": 49,
+            "price3": 79,
+            "seats": 7
+        },
+        {
+            "route": "SFO_SMF",
+            "duration": 35,
+            "price1": 19,
+            "price2": 39,
+            "price3": 59,
+            "seats": 7
+        },
+        {
+            "route": "SMF_SAN",
+            "duration": 195,
+            "price1": 59,
+            "price2": 99,
+            "price3": 109,
+            "seats": 7
+        },
+        {
+            "route": "SMF_SFO",
+            "duration": 40,
+            "price1": 19,
+            "price2": 39,
+            "price3": 59,
+            "seats": 7
+        },
+        {
+            "route": "SMF_OAK",
+            "duration": 45,
+            "price1": 19,
+            "price2": 39,
+            "price3": 59,
+            "seats": 7
+        },
+        {
+            "route": "SMF_LAX",
+            "duration": 195,
+            "price1": 39,
+            "price2": 59,
+            "price3": 89,
+            "seats": 7
+        }
+    ],
+    "Times": [
+        {
+            "flight": 1001,
+            "departure": "SAN",
+            "arrival": "SFO",
+            "takeoff": 600
+        },
+        {
+            "flight": 1002,
+            "departure": "LAX",
+            "arrival": "SFO",
+            "takeoff": 630
+        },
+        {
+            "flight": 1003,
+            "departure": "OAK",
+            "arrival": "SMF",
+            "takeoff": 700
+        },
+        {
+            "flight": 1004,
+            "departure": "LAX",
+            "arrival": "SAN",
+            "takeoff": 730
+        },
+        {
+            "flight": 1005,
+            "departure": "SMF",
+            "arrival": "SFO",
+            "takeoff": 800
+        },
+        {
+            "flight": 1006,
+            "departure": "SAN",
+            "arrival": "SFO",
+            "takeoff": 830
+        },
+        {
+            "flight": 1007,
+            "departure": "SAN",
+            "arrival": "LAX",
+            "takeoff": 900
+        },
+        {
+            "flight": 1008,
+            "departure": "OAK",
+            "arrival": "LAX",
+            "takeoff": 930
+        },
+        {
+            "flight": 1009,
+            "departure": "OAK",
+            "arrival": "SAN",
+            "takeoff": 1000
+        },
+        {
+            "flight": 1010,
+            "departure": "SAN",
+            "arrival": "SMF",
+            "takeoff": 1030
+        },
+        {
+            "flight": 1011,
+            "departure": "SFO",
+            "arrival": "LAX",
+            "takeoff": 1100
+        },
+        {
+            "flight": 1012,
+            "departure": "OAK",
+            "arrival": "SAN",
+            "takeoff": 1130
+        },
+        {
+            "flight": 1013,
+            "departure": "LAX",
+            "arrival": "SFO",
+            "takeoff": 1200
+        },
+        {
+            "flight": 1014,
+            "departure": "SAN",
+            "arrival": "LAX",
+            "takeoff": 1230
+        },
+        {
+            "flight": 1015,
+            "departure": "SFO",
+            "arrival": "SMF",
+            "takeoff": 1300
+        },
+        {
+            "flight": 1016,
+            "departure": "SFO",
+            "arrival": "SAN",
+            "takeoff": 1000
+        },
+        {
+            "flight": 1017,
+            "departure": "SFO",
+            "arrival": "LAX",
+            "takeoff": 1030
+        },
+        {
+            "flight": 1018,
+            "departure": "SMF",
+            "arrival": "OAK",
+            "takeoff": 1100
+        },
+        {
+            "flight": 1019,
+            "departure": "SAN",
+            "arrival": "LAX",
+            "takeoff": 1130
+        },
+        {
+            "flight": 1020,
+            "departure": "SFO",
+            "arrival": "SMF",
+            "takeoff": 1200
+        },
+        {
+            "flight": 1021,
+            "departure": "SFO",
+            "arrival": "SAN",
+            "takeoff": 1230
+        },
+        {
+            "flight": 1022,
+            "departure": "LAX",
+            "arrival": "SAN",
+            "takeoff": 1300
+        },
+        {
+            "flight": 1023,
+            "departure": "LAX",
+            "arrival": "OAK",
+            "takeoff": 1330
+        },
+        {
+            "flight": 1024,
+            "departure": "SAN",
+            "arrival": "OAK",
+            "takeoff": 1400
+        },
+        {
+            "flight": 1025,
+            "departure": "SMF",
+            "arrival": "SAN",
+            "takeoff": 1430
+        },
+        {
+            "flight": 1026,
+            "departure": "LAX",
+            "arrival": "SFO",
+            "takeoff": 1500
+        },
+        {
+            "flight": 1027,
+            "departure": "SAN",
+            "arrival": "OAK",
+            "takeoff": 1530
+        },
+        {
+            "flight": 1028,
+            "departure": "SFO",
+            "arrival": "LAX",
+            "takeoff": 1600
+        },
+        {
+            "flight": 1029,
+            "departure": "LAX",
+            "arrival": "SAN",
+            "takeoff": 1630
+        },
+        {
+            "flight": 1030,
+            "departure": "SMF",
+            "arrival": "SFO",
+            "takeoff": 1700
+        }
+    ],
+    "Cities": [
+        {
+            "city": "Los Angeles",
+            "airportcode": "LAX",
+            "gate": "C32"
+        },
+        {
+            "city": "San Diego",
+            "airportcode": "SAN",
+            "gate": "B21"
+        },
+        {
+            "city": "San Francisco",
+            "airportcode": "SFO",
+            "gate": "A12"
+        },
+        {
+            "city": "Oakland",
+            "airportcode": "OAK",
+            "gate": "B5"
+        },
+        {
+            "city": "Sacramento",
+            "airportcode": "SMF",
+            "gate": "A33"
+        }
+    ],
+    "Bookings": [
+        {
+            "firstname": "Jack",
+            "lastname": "Murphy",
+            "email": "jack@rightisleft.com",
+            "phone": 4153076618,
+            "address": "162 West 80th St #E, New York, NY, 10024",
+            "flight": "null",
+            "transaction": "null"
+        }
+    ],
+    "Transactions": [
+        {
+            "amount": 100,
+            "user": "jack@rightisleft.com"
+        }
+    ]
+}
