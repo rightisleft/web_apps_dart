@@ -8,3 +8,7 @@ environment:
 dependencies:
   json_object: "1.0.19"
   mongo_dart: "0.1.46"
+  connection_pool: "0.1.0+2"
+  dartson: "0.2.4"
+transformers:
+- dartson
