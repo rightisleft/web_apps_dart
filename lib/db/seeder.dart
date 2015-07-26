@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'dart:async';
-import 'package:json_object/json_object.dart';
-import 'package:mongo_dart/mongo_dart.dart';
+import '../../packages/json_object/json_object.dart';
+import '../../packages/mongo_dart/mongo_dart.dart';
 
 main() {
   var importer = new Seeder('Tickets', 'mongodb://127.0.0.1/', 'bin/db/seed.json');
@@ -38,7 +38,7 @@ class Seeder {
 
   Future<Db> insertJsonToMongo(JsonObject json) async
   {
-    Db database = new Db(_dbURI + _dbName);
+    Db database = new Db('mongodb://rightisleft:Lecnac55@ds063892.mongolab.com:63892/rightisleft-dart');
     await database.open();
     await Future.forEach(json.keys, (String collectionName) {
       DbCollection collection = new DbCollection(database, collectionName); //grabs the collection instance
