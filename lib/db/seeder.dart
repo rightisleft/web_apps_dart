@@ -1,10 +1,14 @@
+library ticket_seeder;
+
 import 'dart:io';
 import 'dart:async';
-import '../../packages/json_object/json_object.dart';
-import '../../packages/mongo_dart/mongo_dart.dart';
+import 'package:json_object/json_object.dart';
+import 'package:mongo_dart/mongo_dart.dart';
+import 'db_config.dart';
 
 main() {
-  var importer = new Seeder('Tickets', 'mongodb://127.0.0.1/', 'bin/db/seed.json');
+  DbConfigValues config = new DbConfigValues();
+  var importer = new Seeder(config.dbName, config.dbURI, config.dbSeed);
   importer.readFile();
 }
 
@@ -15,11 +19,10 @@ class Seeder {
 
   Seeder(String this._dbName, String this._dbURI, String this._dbSeedFile);
 
-  void readFile() {
+  Future readFile() {
     File aFile = new File(_dbSeedFile);
-    aFile.readAsString()
+    return aFile.readAsString()
     .then((String item) => new JsonObject.fromJsonString(item))
-    .then(printJson)
     .then(insertJsonToMongo)
     .then(closeDatabase);
   }
@@ -38,19 +41,18 @@ class Seeder {
 
   Future<Db> insertJsonToMongo(JsonObject json) async
   {
-    Db database = new Db('mongodb://rightisleft:Lecnac55@ds063892.mongolab.com:63892/rightisleft-dart');
+    Db database = new Db(_dbURI + _dbName);
     await database.open();
-    await Future.forEach(json.keys, (String collectionName) {
+    await Future.forEach(json.keys, (String collectionName) async {
       DbCollection collection = new DbCollection(database, collectionName); //grabs the collection instance
-      collection.insertAll(json[collectionName]);
+      return collection.insertAll(json[collectionName]);
       //takes a list of maps and writes to a collection
     });
     return database;
   }
 
-  void closeDatabase(Db database) {
-    database.close().then((_) {
-      exit(0);
-    });
+  Future<Map> closeDatabase(Db database) async {
+    Map status = await  database.close();
+    return status;
   }
 }

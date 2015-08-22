@@ -1,8 +1,10 @@
 part of ticket_schemas;
 
 @Entity()
-class PurchaseDTO extends Object
+class PurchaseDTO extends BaseDTO
 {
+  String collection_key = "Purchases";
+
   num flightID;
   num flightLevel;
   num ccn;
@@ -23,4 +25,5 @@ class PurchaseDTO extends Object
   String bState;
   num bZip;
   String bCountry;
+  var transactionId;
 }

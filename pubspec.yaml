@@ -10,5 +10,9 @@ dependencies:
   mongo_dart: "0.1.46"
   connection_pool: "0.1.0+2"
   dartson: "0.2.4"
+  guinness: "0.1.17"
+  shelf: '>=0.6.2 <0.7.0'
+  shelf_static: "0.2.2"
+  shelf_route: 0.13.0
 transformers:
 - dartson

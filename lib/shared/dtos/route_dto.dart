@@ -6,9 +6,9 @@ class RouteDTO extends BaseDTO {
 
   String route;
   num duration;
-  double price1;
-  double price2;
-  double price3;
+  num price1;
+  num price2;
+  num price3;
   int seats;
 
   String getDepartureCity() {

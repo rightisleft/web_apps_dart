@@ -3,117 +3,120 @@ library ticket_models;
 import 'dart:async';
 import 'package:tickets/shared/schemas.dart';
 import 'package:mongo_dart/mongo_dart.dart';
+import 'package:connection_pool/connection_pool.dart';
 import 'mongo_pool.dart';
 import "dart:mirrors";
 
-class Config {
-  static const String DATABASE_NAME = 'Tickets';
-  static const String DATABASE_URL = 'mongodb://127.0.0.1/';
-  static const String DATABASE_SEED = 'db/data/seed.json';
-}
-
 class MongoModel {
 
-  static const String DATABASE_NAME = 'Tickets';
-  static const String DATABASE_URL = 'mongodb://127.0.0.1/';
-  static const int DATABASE_POOL_SIZE = 10;
+  String DATABASE_NAME;
+  String DATABASE_URL;
+  int DATABASE_POOL_SIZE = 10;
+  MongoPool _dbPool;
 
-  static final MongoDbPool _dbPool = new MongoDbPool(DATABASE_URL + DATABASE_NAME, DATABASE_POOL_SIZE);
+  MongoModel(this.DATABASE_NAME, this.DATABASE_URL, this.DATABASE_POOL_SIZE) {
+    _dbPool = new MongoPool(DATABASE_URL + DATABASE_NAME, DATABASE_POOL_SIZE);
+  }
 
-  Future<Map> createByItem(BaseDTO item) async {
+  Future<Map> createByItem(BaseDTO item) {
     assert(item.id == null);
     item.id = new ObjectId();
-    return _dbPool.openNewConnection().then((Db database) {
-      DbCollection collection = database.collection(item.collection_key);
-      Map aMap = voToMongoMap(item);
-      return collection.insert(aMap).then((_) {
-        _dbPool.closeConnection(database);
-        if(_['ok'] == 1)
-        {
-          return [item];
-        } else {
-          return _;
-        }
+    return _dbPool.getConnection().then((ManagedConnection mc) {
+      Db db = mc.conn;
+      DbCollection collection = db.collection(item.collection_key);
+      Map aMap = dtoToMongoMap(item);
+      return collection.insert(aMap).then((status) {
+        _dbPool.releaseConnection(mc);
+        return (status['ok'] == 1) ? item : status;
       });
     });
   }
 
-  Future<Map> deleteByItem(BaseDTO item) async {
+  Future<Map> deleteByItem(BaseDTO item) {
     assert(item.id != null);
-    return _dbPool.openNewConnection().then((Db database) {
+    return _dbPool.getConnection().then((ManagedConnection mc) {
+      Db database = mc.conn;
       DbCollection collection = database.collection(item.collection_key);
-      Map aMap = voToMongoMap(item);
-      return collection.remove(aMap).then((_) {
-        _dbPool.closeConnection(database);
-        return _;
+      Map aMap = dtoToMongoMap(item);
+      return collection.remove(aMap).then((status) {
+        _dbPool.releaseConnection(mc);
+        return status;
       });
     });
   }
 
-  Future<BaseDTO> readItemByItem(BaseDTO matcher) async {
+  Future<BaseDTO> readItemByItem(BaseDTO matcher) {
     assert(matcher.id != null);
     Map query = {'_id': matcher.id};
-    BaseDTO bvo;
+    BaseDTO bdto;
     return _getCollection(matcher.collection_key, query).then((items) {
-      bvo = mapToVO(getInstance(matcher.runtimeType), items.first);
-      return bvo;
+      bdto = mapToDto(getInstance(matcher.runtimeType), items.first);
+      return bdto;
     });
   }
 
-  Future<List> readCollectionByTypeWhere(t, fieldName, values) async {
+  Future<List> readCollectionByTypeWhere(t, fieldName, values) {
     List list = new List();
     BaseDTO freshInstance = getInstance(t);
     return _getCollectionWhere(freshInstance.collection_key, fieldName, values).then((items) {
       items.forEach((item) {
-        list.add(mapToVO(getInstance(t), item));
+        list.add(mapToDto(getInstance(t), item));
       });
       return list;
     });
   }
 
-  Future<List> readCollectionByType(t, [Map query = null]) async {
+  Future<List> readCollectionByType(t, [Map query = null]) {
     List list = new List();
     BaseDTO freshInstance = getInstance(t);
     return _getCollection(freshInstance.collection_key, query).then((items) {
       items.forEach((item) {
-        list.add(mapToVO(getInstance(t), item));
+        list.add(mapToDto(getInstance(t), item));
       });
       return list;
     });
   }
 
-  Future<Map> updateItem(BaseDTO item) async {
+  Future<Map> updateItem(BaseDTO item) {
     assert(item.id != null);
-    return _dbPool.openNewConnection().then((Db database) async {
+    return _dbPool.getConnection().then((ManagedConnection mc) async {
+      Db database = mc.conn;
       DbCollection collection = new DbCollection(database, item.collection_key);
       Map selector = {'_id': item.id};
-      Map newItem = voToMongoMap(item);
+      Map newItem = dtoToMongoMap(item);
       return await collection.update(selector, newItem).then((_) {
-        _dbPool.closeConnection(database);
+        _dbPool.releaseConnection(mc);
         return _;
       });
     });
+  }
+
+  Future<Map> dropDatabase() async {
+    Db database = await _dbPool.openNewConnection();
+    Map status = await database.drop();
+    return status;
   }
 
   // Some Abstractions
 
   Future<List> _getCollectionWhere(String collectionName, fieldName, values) {
-    return _dbPool.openNewConnection().then((Db conn) async {
-      DbCollection collection = new DbCollection(conn, collectionName);
-      return await collection.find( where.oneFrom(fieldName, values) ).toList().then((map) {
-        _dbPool.closeConnection(conn);
+    return _dbPool.getConnection().then((ManagedConnection mc) async {
+      Db database = mc.conn;
+      DbCollection collection = new DbCollection(database, collectionName);
+      SelectorBuilder builder = where.oneFrom(fieldName, values);
+      return await collection.find( builder ).toList().then((map) {
+        _dbPool.releaseConnection(mc);
         return map;
       });
     });
   }
 
   Future<List> _getCollection(String collectionName, [Map query = null]) {
-    return _dbPool.openNewConnection().then((Db conn) async {
-      DbCollection collection = new DbCollection(conn, collectionName);
-      return await collection.find(query).toList().then((map) {
-        _dbPool.closeConnection(conn);
-        return map;
-      });
+    return _dbPool.getConnection().then((ManagedConnection mc) async {
+      DbCollection collection = new DbCollection(mc.conn, collectionName);
+      List<Map> list = await collection.find(query).toList();
+      _dbPool.releaseConnection(mc);
+      return list;
     });
   }
 
@@ -126,20 +129,21 @@ class MongoModel {
     return im.reflectee;
   }
 
-  dynamic mapToVO(vo, Map document) {
-    var reflection = reflect(vo);
+  dynamic mapToDto(cleanObject, Map document) {
+    var reflection = reflect(cleanObject);
     document['id'] = document['_id'];
     document.remove('_id');
     document.forEach((k, v) {
       reflection.setField(new Symbol(k), v);
     });
-    return vo;
+    return cleanObject;
   }
 
-  Map voToMap(Object vo) {
-    var reflection = reflect(vo);
+  Map dtoToMap(Object object) {
+    var reflection = reflect(object);
     Map target = new Map();
     var type = reflection.type;
+
     while (type != null) {
       type.declarations.values.forEach((item) {
         if (item is VariableMirror) {
@@ -156,14 +160,14 @@ class MongoModel {
     return target;
   }
 
-  Map voToMongoMap(object) {
-    Map item = voToMap(object);
+  Map dtoToMongoMap(object) {
+    Map item = dtoToMap(object);
+
     // mongo uses an underscore prefix which would act as a private field in dart
     // convert only on write to mongo
+
     item['_id'] = item['id'];
     item.remove('id');
     return item;
   }
 }
-
-

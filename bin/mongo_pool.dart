@@ -2,11 +2,11 @@ import 'package:connection_pool/connection_pool.dart';
 import 'package:mongo_dart/mongo_dart.dart';
 import 'dart:async';
 
-class MongoDbPool extends ConnectionPool<Db> {
+class MongoPool extends ConnectionPool<Db> {
 
   String uri;
 
-  MongoDbPool(String this.uri, int poolSize) : super(poolSize);
+  MongoPool(String this.uri, int poolSize) : super(poolSize);
 
   @override
   void closeConnection(Db conn) {
