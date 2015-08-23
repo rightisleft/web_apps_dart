@@ -1,10 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="utf-8">
-    <title>Ticket Application</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JIT Ticket Application</title>
+    <link rel="stylesheet" href="packages/bootjack/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://bootswatch.com/flatly/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-<p>Dart Ticket Application<p>
+<div class="container">
+    <div class="col-lg-12">
+        <h1>Ticket Application</h1>
+        <a class="btn btn-primary" id="hw">Hello World!</a>
+        <hr/>
+        <input type="text" class="form-control" placeholder="Blank" />
+    </div>
+
+    <div id="deals">
+        <!-- Target -->
+    </div>
+</div>
+
+<template>
+    <!-- This is a box -->
+    <div class="col-xs-4">
+        <div class="deal-box well clearfix">
+            <img/>
+            <h3>City</h3>
+            <h4>Date</h4>
+            <p>Descriptions</p>
+            <h5>Price</h5>
+        </div>
+    </div>
+</template>
+
+<script type="application/dart" src="main.dart"></script>
+<script src="packages/browser/dart.js"></script>
 </body>
 </html>
