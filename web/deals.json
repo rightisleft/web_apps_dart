@@ -3,26 +3,29 @@
     {
       "city_arrival" : "SFO",
       "city_departure" : "SAN",
-      "price": "$85.00",
+      "price": "$99.00",
       "description": "King Of Sour Dough!",
       "date": "10/29/2015",
-      "image": "http://bit.ly/wiki_sfo"
+      "image": "http://bit.ly/wiki_sfo",
+      "url": "/order/1001/3/2015-10-29/2015-11-02/"
     },
     {
       "city_arrival" : "LAX",
       "city_departure" : "SFO",
-      "price": "$85.00",
+      "price": "79.00",
       "description": "Surf & Sand!",
       "date": "10/30/2015",
-      "image": "http://bit.ly/wiki_lax"
+      "image": "http://bit.ly/wiki_lax",
+      "url": "/order/1026/3/2015-10-30/2015-11-03/"
     },
     {
       "city_arrival" : "SAC",
       "city_departure" : "SAN",
-      "price": "$85.00",
+      "price": "109.00",
       "description": "Visit The State Capital!",
       "date": "10/31/2015",
-      "image": "http://bit.ly/wiki_sac"
+      "image": "http://bit.ly/wiki_sac",
+      "url": "/order/1025/3/2015-10-31/2015-11-03/"
     }
   ]
 }

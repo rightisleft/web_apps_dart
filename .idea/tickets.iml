@@ -8,6 +8,7 @@
       <excludeFolder url="file://$MODULE_DIR$/packages/tickets" />
       <excludeFolder url="file://$MODULE_DIR$/test/packages" />
       <excludeFolder url="file://$MODULE_DIR$/web/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/web/styles/packages" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
