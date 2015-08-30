@@ -12,3 +12,8 @@ html, body {
     width: 1170px;
 }
 
+.deal-box {
+    h3 { margin-top: 0; }
+    img { display: block; width: 100px; height: 66px; float: right; }
+    .btn { margin-top: -45px; float: right; }
+}
