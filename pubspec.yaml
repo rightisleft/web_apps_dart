@@ -14,11 +14,24 @@ dependencies:
   guinness: "0.1.17"
   shelf: '>=0.6.2 <0.7.0'
   shelf_static: "0.2.2"
-  shelf_route: 0.13.0
+  shelf_route: "0.14.0"
 #Client Dependencies
   bootjack: "0.6.5"
   browser: ">=0.10.0+2 <0.11.0"
   sass: "0.4.2"
+  angular2: "2.0.0-alpha.36"
 transformers:
 - dartson
 - sass
+- angular2:
+    entry_points:
+        - web/main.dart
+    reflection_entry_points:
+        - web/main.dart
+- $dart2js:
+    minify: true
+    commandLineOptions:
+    - --dump-info
+    - --show-package-warnings
+    - --trust-type-annotations
+    - --trust-primitives

@@ -5,6 +5,10 @@ packages:
     description: analyzer
     source: hosted
     version: "0.25.0+1"
+  angular2:
+    description: angular2
+    source: hosted
+    version: "2.0.0-alpha.36"
   args:
     description: args
     source: hosted
@@ -25,6 +29,14 @@ packages:
     description: bson
     source: hosted
     version: "0.1.23"
+  cli_util:
+    description: cli_util
+    source: hosted
+    version: "0.0.1+2"
+  code_transformers:
+    description: code_transformers
+    source: hosted
+    version: "0.2.9+3"
   collection:
     description: collection
     source: hosted
@@ -41,6 +53,14 @@ packages:
     description: crypto
     source: hosted
     version: "0.9.0"
+  csslib:
+    description: csslib
+    source: hosted
+    version: "0.12.1"
+  dart_style:
+    description: dart_style
+    source: hosted
+    version: "0.1.8+2"
   dartson:
     description: dartson
     source: hosted
@@ -61,6 +81,10 @@ packages:
     description: guinness
     source: hosted
     version: "0.1.17"
+  html:
+    description: html
+    source: hosted
+    version: "0.12.2"
   http_parser:
     description: http_parser
     source: hosted
@@ -97,6 +121,10 @@ packages:
     description: more
     source: hosted
     version: "1.4.0"
+  observe:
+    description: observe
+    source: hosted
+    version: "0.13.1+2"
   option:
     description: option
     source: hosted
@@ -116,7 +144,7 @@ packages:
   quiver:
     description: quiver
     source: hosted
-    version: "0.20.0"
+    version: "0.21.4"
   sass:
     description: sass
     source: hosted
@@ -128,15 +156,19 @@ packages:
   shelf_path:
     description: shelf_path
     source: hosted
-    version: "0.1.6"
+    version: "0.1.7"
   shelf_route:
     description: shelf_route
     source: hosted
-    version: "0.13.0"
+    version: "0.14.0"
   shelf_static:
     description: shelf_static
     source: hosted
     version: "0.2.2"
+  smoke:
+    description: smoke
+    source: hosted
+    version: "0.3.5"
   source_maps:
     description: source_maps
     source: hosted
@@ -160,7 +192,7 @@ packages:
   uri:
     description: uri
     source: hosted
-    version: "0.10.0"
+    version: "0.11.0"
   utf:
     description: utf
     source: hosted
@@ -169,3 +201,11 @@ packages:
     description: watcher
     source: hosted
     version: "0.9.7"
+  when:
+    description: when
+    source: hosted
+    version: "0.2.0"
+  which:
+    description: which
+    source: hosted
+    version: "0.1.3"

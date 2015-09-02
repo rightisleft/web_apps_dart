@@ -25,5 +25,5 @@ class PurchaseDTO extends BaseDTO
   String bState;
   num bZip;
   String bCountry;
-  var transactionId;
+  String transactionId;
 }
