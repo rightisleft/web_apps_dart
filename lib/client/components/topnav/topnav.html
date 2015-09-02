@@ -1,0 +1,19 @@
+<section>
+    <nav class="navbar navbar-default">
+        <div class="navbar-header">
+            <a class="navbar-brand" rref target="landing">Just-In-Time Airlines</a>
+        </div>
+
+        <div class="pull-right">
+            <a ng-repeat="aButton in buttons"
+               type="button"
+               style="margin-right: 15px;"
+               class="btn btn-info navbar-btn"
+               rref
+               target="{{ aButton.route }}"
+               ng-class="{active: aButton.isActive}">{{ aButton.content }}</a>
+        </div>
+    </nav>
+</section>
+
+<!--ng-href="{{ '#' +  }}"-->

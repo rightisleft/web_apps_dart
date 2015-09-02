@@ -1,6 +1,8 @@
 import 'dart:html';
 import 'dart:async';
 import 'package:json_object/json_object.dart';
+import 'package:angular2/bootstrap.dart';
+import 'package:tickets/parent_angular.dart';
 
 DocumentFragment _templateFrag;
 DivElement _frag;
@@ -14,6 +16,7 @@ void main() {
   _templateFrag = querySelector('template').content;
 
   render();
+  bootstrap(TicketApp);
 }
 
 
