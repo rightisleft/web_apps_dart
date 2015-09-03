@@ -1,19 +1,17 @@
 <section>
     <nav class="navbar navbar-default">
         <div class="navbar-header">
-            <a class="navbar-brand" rref target="landing">Just-In-Time Airlines</a>
+            <a class="navbar-brand" target="landing">Just-In-Time Airlines</a>
         </div>
-
         <div class="pull-right">
-            <a ng-repeat="aButton in buttons"
+            <a *ng-for="#aButton of buttons; #i = index"
                type="button"
                style="margin-right: 15px;"
                class="btn btn-info navbar-btn"
-               rref
-               target="{{ aButton.route }}"
+               [router-link]="[aButton.route]"
                ng-class="{active: aButton.isActive}">{{ aButton.content }}</a>
         </div>
     </nav>
 </section>
 
-<!--ng-href="{{ '#' +  }}"-->
+<router-outlet></router-outlet>

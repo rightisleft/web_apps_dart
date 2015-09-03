@@ -3,7 +3,6 @@ import 'package:shelf/shelf_io.dart' as io;
 import 'package:shelf_route/shelf_route.dart';
 
 import 'dart:io';
-import 'dart:async';
 import 'package:path/path.dart';
 import 'package:shelf_static/shelf_static.dart';
 

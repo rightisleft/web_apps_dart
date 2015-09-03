@@ -19,7 +19,7 @@ dependencies:
   bootjack: "0.6.5"
   browser: ">=0.10.0+2 <0.11.0"
   sass: "0.4.2"
-  angular2: "2.0.0-alpha.36"
+  angular2: "2.0.0-alpha.35"
 transformers:
 - dartson
 - sass

@@ -8,7 +8,7 @@ packages:
   angular2:
     description: angular2
     source: hosted
-    version: "2.0.0-alpha.36"
+    version: "2.0.0-alpha.35"
   args:
     description: args
     source: hosted
