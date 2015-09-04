@@ -1,7 +1,8 @@
 part of ticket_client;
 
 @Component(
-  selector: "landing"
+  selector: "landing",
+  properties: const['deals']
 )
 
 @View (
@@ -12,10 +13,19 @@ part of ticket_client;
 
 class Landing{
   Router _router;
+  List deals;
 
-  Landing(Router router) {
-    _router = router;
-    print('--topnav--');
+
+  Landing(Router this._router) {
+    init();
   }
+
+  Future init() async  {
+  String result = await HttpRequest.getString('/web_apps_dart/web/deals.json');
+  JsonObject response = new JsonObject.fromJsonString(result);
+  deals = response.deals;
+  print(deals);
+  }
+
 }
 

@@ -4,6 +4,7 @@ import 'dart:async';
 import 'dart:html';
 
 //pub
+import 'package:json_object/json_object.dart';
 import 'package:angular2/angular2.dart';
 import 'package:angular2/bootstrap.dart';
 import 'package:angular2/router.dart';
