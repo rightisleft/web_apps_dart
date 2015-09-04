@@ -23,9 +23,6 @@ class Picker extends Object {
   }
 
   void onFind(city) {
-    print(info.cityDepart);
-    print(info.cityArrival);
-    print(info.toPostable());
     onSubmit();
   }
 

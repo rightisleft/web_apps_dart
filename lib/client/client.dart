@@ -2,6 +2,7 @@ library ticket_client;
 
 import 'dart:async';
 import 'dart:html';
+import 'dart:convert';
 
 //pub
 import 'package:json_object/json_object.dart';

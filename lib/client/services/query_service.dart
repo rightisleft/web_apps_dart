@@ -8,12 +8,12 @@ class FlightQueryService{
   }
 
   Future fetchFlightTimes(FlightPostParamsDTO params) async {
-    Map post = params.toPostable();
-    return HttpRequest.postFormData(BASE + 'times', post ).then(handleTimes);
+    var post = JSON.encode( params.toPostable() );
+    return postJson(BASE + 'times', post ).then(handleTimes);
   }
 
   Future fetchFlightByNumber(num id) async {
-    return HttpRequest.getString(BASE + 'flight/' + id.toString()).then(handleTimes);
+    return HttpRequest.getString(BASE + 'flight/' + id.toString()).then((item) => print('TBD') );
   }
 
   Future fetchCities() async {
@@ -21,12 +21,12 @@ class FlightQueryService{
   }
 
   Future purchaseTicket(String json) async {
-    return HttpRequest.postFormData(BASE + 'purchase', {}).then(handlePurchase);
+    return postJson(BASE + 'purchase', {}).then(handlePurchase);
   }
 
-  List<TimeDTO> handleTimes(String response) {
+  List<TimeDTO> handleTimes(String resp) {
     Dartson converter = new Dartson.JSON();
-    List<TimeDTO> dtos = converter.decode(response, new TimeDTO(), true);
+    List<TimeDTO> dtos = converter.decode(resp, new TimeDTO(), true);
     return dtos;
   }
 
@@ -47,6 +47,20 @@ class FlightQueryService{
     TransactionDTO dtos = converter.decode(response, new TransactionDTO());
     return dtos;
   }
+}
+
+Future postJson(url, data) {
+  Completer contract = new Completer();
+  HttpRequest request = new HttpRequest(); // create a new XHR
+  request.open("POST", url);
+  request.onReadyStateChange.listen((_) {
+    if (request.readyState == HttpRequest.DONE && (request.status == 200 || request.status == 0)) {
+      contract.complete(request.responseText);
+    }
+  });
+
+  request.send(data); // perform the async POST
+  return contract.future;
 }
 
 

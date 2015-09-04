@@ -5,11 +5,12 @@ part of ticket_client;
 )
 @View(
   styleUrls: const ["package:tickets/client/components/flight_display/flight_display.css"],
-  templateUrl: "package:tickets/client/components/flight_display/flight_display.html"
+  templateUrl: "package:tickets/client/components/flight_display/flight_display.html",
+  directives: const[CORE_DIRECTIVES]
 )
 class FlightDisplay extends Object {
 
-  RouteProvider routeProvider;
+  RouteParams routeParams;
   Router router;
 
   NgForm flight_display_form;
@@ -21,15 +22,13 @@ class FlightDisplay extends Object {
   List<TimeDTO> flight_times;
   List<RouteDTO> routes;
 
-  FlightDisplay();
-
-//  FlightDisplay(Router this.router, RouteProvider this.routeProvider, FlightQueryService this.queryService) {
-//    if(routeProvider.parameters.isEmpty == false)
-//    {
-//      params = new FlightPostParamsDTO.FromPost(routeProvider.parameters);
-//      fetchData(params);
-//    }
-//  }
+  FlightDisplay(Router this.router, RouteParams this.routeParams, FlightQueryService this.queryService) {
+    if(routeParams.params != null && routeParams.params.isEmpty == false)
+    {
+      params = new FlightPostParamsDTO.FromPost(routeParams.params);
+      fetchData(params);
+    }
+  }
 
   void fetchData(FlightPostParamsDTO params) {
     queryService.fetchFlightTimes(params).then( (List<TimeDTO> dtos) {

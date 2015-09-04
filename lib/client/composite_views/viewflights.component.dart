@@ -9,6 +9,7 @@ part of ticket_client;
   '''
     <h1>Flights</h1>
     <picker></picker>
+    <flight-display></flight-display>
   '''
 )
 class ViewFlights extends Object {

@@ -1,10 +1,10 @@
-<section ng-if="flight_times == null" class="clearfix" ng-if="routes != null">
+<section *ng-if="flight_times == null" class="clearfix" *ng-if="routes != null">
     <div class="clearfix well">
         <h1>Please select your flight data above</h1>
     </div>
 </section>
 
-<section ng-if="flight_times != null" class="clearfix" ng-if="routes != null">
+<section *ng-if="flight_times != null" class="clearfix" *ng-if="routes != null">
     <form name="flight_display_form" novalidate>
         <table class="table table-bordered table-hover">
             <thead>
@@ -21,7 +21,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="time in flight_times">
+            <tr *ng-for="#time of flight_times; #iso = index">
                 <td>{{ time.flight }}</td>
                 <td>{{ time.takeoff }}</td>
                 <td>{{ time.takeoff + time.route.duration }}</td>
@@ -31,19 +31,19 @@
                     <label>
                         ${{ time.route.price1 }}
                     </label>
-                    <input type="radio" name="service_level" ng-attr-id="{{'selection0' + $index}}" ng-model="service_level" ng-value="1" />
+                    <input type="radio" name="service_level" paco="{{'selection0' + iso.toString() }}" loco="service_level" level="1" />
                 </td>
                 <td>
                     <label>
                         ${{ time.route.price2 }}
                     </label>
-                    <input type="radio" name="service_level" ng-attr-id="{{'selection1' + $index}}" ng-model="service_level" ng-value="2" />
+                    <input type="radio" name="service_level" paco="{{'selection1' + iso.toString() }}" loco="service_level" level="2" />
                 </td>
                 <td>
                     <label>
                         ${{ time.route.price3 }}
                     </label>
-                    <input type="radio" name="service_level" ng-attr-id="{{'selection2' + $index}}" ng-model="service_level" ng-value="3" />
+                    <input type="radio" name="service_level" paco="{{'selection2' + iso.toString() }}" loco="service_level" level="3" />
                 </td>
                 <td class="order"><a type="submit" class="btn btn-sm btn-primary" ng-click="onsubmit(time)">Order</a> </td>
             </tr>
