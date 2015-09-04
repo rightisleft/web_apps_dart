@@ -1,45 +1,48 @@
 part of ticket_client;
 
 @Component(
-  selector: 'picker'
+  selector: 'picker',
+  properties: const ['depart']
 )
 @View(
   styles: const ["package:tickets/client/components/picker/picker.css"],
-  templateUrl: "package:tickets/client/components/picker/picker.html"
+  templateUrl: "package:tickets/client/components/picker/picker.html",
+  directives: const [CORE_DIRECTIVES, FORM_DIRECTIVES, routerDirectives]
 )
 class Picker extends Object {
-
   Router _router;
-  RouteProvider _routeProvider;
   NgForm flightForm;
   FlightPostParamsDTO info = new FlightPostParamsDTO();
   List<CityDTO> cities;
   FlightQueryService queryService;
+  String depart_city;
 
-  Picker();
+  Picker(Router this._router, FlightQueryService this.queryService) {
+    populateCitites();
+    populateState();
+  }
 
-//  Picker(Router this._router, RouteProvider this._routeProvider, FlightQueryService this.queryService) {
-//    populateCitites();
-//    populateState();
-//  }
+  void onFind(city) {
+    print(info.cityDepart);
+    print(info.cityArrival);
+    print(info.toPostable());
+    onSubmit();
+  }
 
   void populateCitites() {
     queryService.fetchCities().then( (List<CityDTO> dtos) {
       cities = dtos;
+      cities.forEach((CityDTO city) => print(city.airportcode));
     });
   }
 
   void populateState() {
-    if(_routeProvider.parameters.isEmpty == false)
-    {
-      info = info.setup(_routeProvider.parameters, info);
-    }
+//    info = info.setup(_routeProvider.parameters, info);
   }
 
-  onSubmit(NgForm form)
+  onSubmit()
   {
-    print(form);
-    var postItem =  info.toPostable();
-    this._router.go('flightsId', postItem );
+    Instruction _navigationInstruction = this._router.generate(['/picker', info.toPostable() ]);
+    this._router.navigateInstruction(_navigationInstruction);
   }
 }

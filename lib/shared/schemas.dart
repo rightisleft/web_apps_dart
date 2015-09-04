@@ -1,7 +1,8 @@
 library ticket_schemas;
 
 import 'package:dartson/dartson.dart';
-import 'package:angular2/angular2.dart';
+import 'package:angular2/di.dart';
+import 'package:intl/intl.dart';
 
 //Injectables
 part 'dtos/base_dto.dart';

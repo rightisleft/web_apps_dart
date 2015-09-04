@@ -3,14 +3,20 @@ part of ticket_schemas;
 class FlightPostParamsDTO {
   String cityDepart;
   String cityArrival;
-  DateTime dateDepart;
-  DateTime dateArrival;
+  String dateDepart;
+  String dateArrival;
+
+  DateTime _dateDepart;
+  DateTime _dateArrival;
+
 
   FlightPostParamsDTO();
 
   Map toPostable() {
     var f = new DateFormat('yyyy-MM-dd');
-    return {'cityDepart': cityDepart, 'cityArrival': cityArrival, 'dateDepart': f.format( dateDepart ) , 'dateArrival': f.format( dateArrival ) };
+    _dateDepart= DateTime.parse(dateDepart);
+    _dateArrival= DateTime.parse(dateDepart);
+    return {'cityDepart': cityDepart, 'cityArrival': cityArrival, 'dateDepart': f.format( _dateDepart ) , 'dateArrival': f.format( _dateArrival ) };
   }
 
   String format(DateTime value)
@@ -29,8 +35,8 @@ class FlightPostParamsDTO {
   {
     instance.cityArrival = aMap['cityArrival'];
     instance.cityDepart = aMap['cityDepart'];
-    instance.dateDepart= DateTime.parse(aMap['dateDepart']);
-    instance.dateArrival= DateTime.parse(aMap['dateArrival']);
+    instance._dateDepart= DateTime.parse(aMap['dateDepart']);
+    instance._dateArrival= DateTime.parse(aMap['dateArrival']);
     return instance;
   }
 }
