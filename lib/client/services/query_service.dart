@@ -12,8 +12,8 @@ class FlightQueryService{
     return postJson(BASE + 'times', post ).then(handleTimes);
   }
 
-  Future fetchFlightByNumber(num id) async {
-    return HttpRequest.getString(BASE + 'flight/' + id.toString()).then((item) => print('TBD') );
+  Future fetchFlightByNumber(String flightId) async {
+    return HttpRequest.getString(BASE + 'flight/' + flightId ).then(handleTimes);
   }
 
   Future fetchCities() async {

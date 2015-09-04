@@ -1,26 +1,26 @@
 <h2>Order Page</h2>
-<form ng-submit="onSubmit()" novalidate id="orderForm" name="orderForm">
+<form novalidate id="orderForm" name="orderForm" onsubmit="return false;">
 
     <div class="col-lg-4">
         <h3>Passenger Information</h3>
         <div class="form-group">
             <label for="first">First Name</label>
-            <input type="text" id="first" ng-model="dto.pFirstName" class="form-control" ng-required='true' />
+            <input type="text" id="first" [(ng-model)]="dto.pFirstName" class="form-control" [required]="true"/>
         </div>
 
         <div class="form-group">
             <label for="middle">Middle Name</label>
-            <input type="text" id="middle" ng-model="dto.pMiddleName" class="form-control" ng-required='true' />
+            <input type="text" id="middle" [(ng-model)]="dto.pMiddleName" class="form-control" [required]="true"/>
         </div>
 
         <div class="form-group">
             <label for="last">Last Name</label>
-            <input type="text" id="last" ng-model="dto.pLastName" class="form-control" ng-required='true' />
+            <input type="text" id="last" [(ng-model)]="dto.pLastName" class="form-control" [required]="true"/>
         </div>
 
         <div class="form-group">
             <label for="email">Email Address</label>
-            <input type="text" id="email" ng-model="dto.pEmail" class="form-control" ng-required='true' />
+            <input type="text" id="email" [(ng-model)]="dto.pEmail" class="form-control" [required]="true"/>
         </div>
     </div>
 
@@ -28,32 +28,32 @@
         <h3>Billing Information</h3>
         <div class="form-group">
             <label for="billing_first">First Name</label>
-            <input type="text" id="billing_first" ng-model="dto.bFirstName" class="form-control" ng-required='true' />
+            <input type="text" id="billing_first" [(ng-model)]="dto.bFirstName" class="form-control" [required]="true"/>
         </div>
 
         <div class="form-group">
             <label for="billing_middle">Middle Name</label>
-            <input type="text" id="billing_middle" ng-model="dto.bMiddleName" class="form-control" ng-required='true' />
+            <input type="text" id="billing_middle" [(ng-model)]="dto.bMiddleName" class="form-control" [required]="true"/>
         </div>
 
         <div class="form-group">
             <label for="billing_last">Last Name</label>
-            <input type="text" id="billing_last" ng-model="dto.bLastName" class="form-control" ng-required='true' />
+            <input type="text" id="billing_last" [(ng-model)]="dto.bLastName" class="form-control" [required]="true"/>
         </div>
 
         <div class="form-group">
             <label for="billing_address">Address</label>
-            <input type="text" id="billing_address" ng-model="dto.bAddress" class="form-control" ng-required='true' />
+            <input type="text" id="billing_address" [(ng-model)]="dto.bAddress" class="form-control" [required]="true"/>
         </div>
 
         <div class="form-group">
             <label for="billing_city">City</label>
-            <input type="text" id="billing_city" ng-model="dto.bCity" class="form-control" ng-required='true' />
+            <input type="text" id="billing_city" [(ng-model)]="dto.bCity" class="form-control" [required]="true"/>
         </div>
 
         <div class="form-group">
             <label for="bState">State</label>
-            <select ng-model="dto.bState" id="bState" class="form-control">
+            <select [(ng-model)]="dto.bState" id="bState" class="form-control">
                 <option value="Az">Arizona</option>
                 <option value="Ca">California</option>
                 <option value="Nv">Nevada</option>
@@ -64,12 +64,12 @@
 
         <div class="form-group">
             <label for="billing_zip">Zip</label>
-            <input type="number" id="billing_zip" ng-model="dto.bZip" class="form-control" ng-required='true' />
+            <input type="number" id="billing_zip" [(ng-model)]="dto.bZip" class="form-control" [required]="true"/>
         </div>
 
         <div class="form-group">
             <label for="billing_country">Country</label>
-            <input type="text" id="billing_country" ng-model="dto.bCountry" class="form-control" ng-required='true' />
+            <input type="text" id="billing_country" [(ng-model)]="dto.bCountry" class="form-control" [required]="true"/>
         </div>
     </div>
 
@@ -78,22 +78,22 @@
 
         <div class="form-group">
             <label for="card_number">Credit Card Number</label>
-            <input type="number" id="card_number" ng-model="dto.ccn" class="form-control" ng-required='true' />
+            <input type="number" id="card_number" [(ng-model)]="dto.ccn" class="form-control" [required]="true"/>
         </div>
 
         <div class="form-group">
             <label for="card_expiration">Expiration</label>
-            <input type="text" id="card_expiration" ng-model="dto.ccExpiration" class="form-control" ng-required='true' />
+            <input type="text" id="card_expiration" [(ng-model)]="dto.ccExpiration" class="form-control" [required]="true"/>
         </div>
 
         <div class="form-group">
             <label for="card_ccv">CCV</label>
-            <input type="number" id="card_ccv" ng-model="dto.ccv" class="form-control" ng-required='true' />
+            <input type="number" id="card_ccv" [(ng-model)]="dto.ccv" class="form-control" [required]="true"/>
         </div>
 
         <div class="form-group">
             <label for="card_type">Card Type</label>
-            <select ng-model="dto.ccType" id="card_type" class="form-control">
+            <select [(ng-model)]="dto.ccType" id="card_type" class="form-control">
                 <option value="visa">Visa</option>
                 <option value="mastercard">MasterCard</option>
                 <option value="amex">American Express</option>

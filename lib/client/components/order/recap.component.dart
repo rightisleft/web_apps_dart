@@ -5,38 +5,27 @@ part of ticket_client;
 )
 @View(
   styles: const ["package:tickets/client/components/order/recap.css"],
-  templateUrl: "package:tickets/client/components/order/recap.html"
+  templateUrl: "package:tickets/client/components/order/recap.html",
+  directives: const[CORE_DIRECTIVES]
 )
 class Recap extends Object {
 
   Router _router;
-  RouteProvider _routeProvider;
+  RouteParams _routeParams;
   FlightQueryService queryService;
-  Scope _scope;
-  FlightPostParamsDTO params;
+  FlightPostParamsDTO flightDTO;
 
-  @NgTwoWay('timeDTO')
   TimeDTO timeDTO;
+  SharedData shared;
 
-  Recap();
-//  Recap(Router this._router, RouteProvider this._routeProvider, FlightQueryService this.queryService)
-//  {
-//    params = new FlightPostParamsDTO.FromPost(_routeProvider.parameters);
-//  }
-
-  void set scope(Scope scope) {
-    // with this scope you should be able to use emit
-    // This setter gets called to initialize the scope
-    this._scope = scope;
-    Stream mystream = _scope.rootScope.on('flight');
-    mystream.listen((event){
-      timeDTO = event.data;
-    });
+  Recap(Router this._router, RouteParams this._routeParams, FlightQueryService this.queryService, SharedData this.shared)
+  {
+    flightDTO = new FlightPostParamsDTO.FromPost(_routeParams.params);
   }
 
   String format(DateTime value)
   {
-    return params.format(value);
+    return flightDTO.format(value);
   }
 
 }

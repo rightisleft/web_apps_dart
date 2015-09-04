@@ -31,21 +31,21 @@
                     <label>
                         ${{ time.route.price1 }}
                     </label>
-                    <input type="radio" name="service_level" paco="{{'selection0' + iso.toString() }}" loco="service_level" level="1" />
+                    <input type="radio" name="service_level" [id]="'selection0' + iso.toString()" (click)="service_level = 1" />
                 </td>
                 <td>
                     <label>
                         ${{ time.route.price2 }}
                     </label>
-                    <input type="radio" name="service_level" paco="{{'selection1' + iso.toString() }}" loco="service_level" level="2" />
+                    <input type="radio" name="service_level" [id]="'selection1' + iso.toString()" (click)="service_level = 2" />
                 </td>
                 <td>
                     <label>
                         ${{ time.route.price3 }}
                     </label>
-                    <input type="radio" name="service_level" paco="{{'selection2' + iso.toString() }}" loco="service_level" level="3" />
+                    <input type="radio" name="service_level" [id]="'selection2' + iso.toString()" (click)="service_level = 3" />
                 </td>
-                <td class="order"><a type="submit" class="btn btn-sm btn-primary" ng-click="onsubmit(time)">Order</a> </td>
+                <td class="order"><a type="submit" class="btn btn-sm btn-primary" (click)="onsubmit(time)">Order</a> </td>
             </tr>
             </tbody>
         </table>

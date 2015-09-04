@@ -45,7 +45,7 @@ class Seeder {
     await database.open();
     await Future.forEach(json.keys, (String collectionName) async {
       DbCollection collection = new DbCollection(database, collectionName); //grabs the collection instance
-      return collection.insertAll(json[collectionName]);
+      return await collection.insertAll(json[collectionName]);
       //takes a list of maps and writes to a collection
     });
     return database;

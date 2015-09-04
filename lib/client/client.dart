@@ -17,8 +17,6 @@ import 'package:dartson/dartson.dart';
 //shared
 import 'package:tickets/shared/schemas.dart';
 
-part 'package:tickets/client/services/shared_data.dart';
-
 part 'tickets.dart';
 part 'components/flight_display/flight_display.component.dart';
 part 'components/landing/landing.component.dart';
@@ -27,9 +25,12 @@ part 'components/order/recap.component.dart';
 part 'components/picker/picker.component.dart';
 part 'components/search/search_component.dart';
 part 'components/topnav/topnav.component.dart';
+
 part 'services/query_service.dart';
+part 'services/shared_data.dart';
 
 part 'composite_views/viewflights.component.dart';
+part 'composite_views/vieworder.component.dart';
 
 
-const List<Type> client_classes = const [Topnav, Tickets, Landing, BaseDTO, ViewFlights, FlightDisplay,  SearchBox, OrderForm, Recap, Picker, FlightQueryService];
+const List<Type> client_classes = const [Topnav, Tickets, Landing, BaseDTO, ViewFlights, FlightDisplay,  SearchBox, OrderForm, Recap, Picker, FlightQueryService, SharedData];

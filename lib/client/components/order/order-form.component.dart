@@ -10,37 +10,30 @@ part of ticket_client;
 class OrderForm extends Object {
 
   Router _router;
-  RouteProvider _routeProvider;
+  RouteParams routeParams;
   FlightQueryService queryService;
-  TimeDTO flightDTO;
+  TimeDTO timeDTO;
   Recap recap;
-  Scope _scope;
-  PurchaseDTO dto= new PurchaseDTO();
+  PurchaseDTO dto = new PurchaseDTO();
   NgForm orderForm;
-  SharedData sharedDTO;
+  SharedData shared;
 
-  OrderForm();
-
-//  OrderForm(Router this._router, RouteProvider this._routeProvider, FlightQueryService this.queryService, SharedData this.sharedDTO) {
-//   fetch();
-//  }
-
-  void fetch() {
-    if(_routeProvider != null && _routeProvider.parameters.isEmpty == false)
-    {
-      queryService.fetchFlightByNumber(int.parse(_routeProvider.parameters['id'])).then((List<TimeDTO> dtos){
-        flightDTO = dtos.first;
-        dto.flightID = flightDTO.flight;
-        dto.flightLevel = int.parse(_routeProvider.parameters['level']);
-        _scope.rootScope.emit('flight', flightDTO);
-      });
-    }
+  OrderForm(Router this._router, RouteParams this.routeParams, FlightQueryService this.queryService, SharedData this.shared) {
+   fetch();
   }
 
-  void set scope(Scope scope) {
-    // with this scope you should be able to use emit
-    // This setter gets called to initialize the scope
-    this._scope = scope;
+  Future fetch() async {
+    if(routeParams != null && routeParams.params.isEmpty == false)
+    {
+      List<TimeDTO> dtos = await queryService.fetchFlightByNumber(routeParams.params['id'].toString());
+      print(dtos);
+      timeDTO = dtos.first;
+      dto.flightID = timeDTO.flight;
+      dto.flightLevel = int.parse( routeParams.params['level'].toString() );
+
+      shared.purchaseDTO = dto;
+      shared.timeDTO = timeDTO;
+    }
   }
 
   onSubmit()
@@ -52,8 +45,8 @@ class OrderForm extends Object {
     String jsonString = dson.encode(dto);
     print(jsonString);
     queryService.purchaseTicket(jsonString).then((TransactionDTO response){
-      sharedDTO.transaction = response;
-      _router.go('success', {});
+    shared.transaction = response;
+//      _router.navigate('success', {});
     });
   }
 }
