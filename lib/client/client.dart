@@ -28,5 +28,7 @@ part 'components/search/search_component.dart';
 part 'components/topnav/topnav.component.dart';
 part 'services/query_service.dart';
 
+part 'composite_views/viewflights.component.dart';
 
-const List<Type> client_classes = const [Topnav, Tickets, Landing, BaseDTO, FlightDisplay, SearchBox, OrderForm, Recap, Picker, FlightQueryService];
+
+const List<Type> client_classes = const [Topnav, Tickets, Landing, BaseDTO, ViewFlights, FlightDisplay,  SearchBox, OrderForm, Recap, Picker, FlightQueryService];

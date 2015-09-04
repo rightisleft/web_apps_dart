@@ -4,7 +4,7 @@ part of ticket_client;
   selector: 'order-form'
 )
 @View(
-  styles: const ["package:tickets/client/components/order/ordr.css"],
+  styleUrls: const ["package:tickets/client/components/order/order.css"],
   templateUrl: "package:tickets/client/components/order/form.html"
 )
 class OrderForm extends Object {

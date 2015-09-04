@@ -5,7 +5,7 @@ part of ticket_client;
   properties: const ['depart']
 )
 @View(
-  styles: const ["package:tickets/client/components/picker/picker.css"],
+  styleUrls: const ["package:tickets/client/components/picker/picker.css"],
   templateUrl: "package:tickets/client/components/picker/picker.html",
   directives: const [CORE_DIRECTIVES, FORM_DIRECTIVES, routerDirectives]
 )

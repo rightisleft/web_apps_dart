@@ -6,7 +6,7 @@ part of ticket_client;
 )
 
 @View (
-  styles: const ["package:tickets/client/components/landing/landing.css"],
+  styleUrls: const ["package:tickets/client/components/landing/landing.css"],
   templateUrl: "package:tickets/client/components/landing/landing.html",
   directives: const [CORE_DIRECTIVES]
 )
