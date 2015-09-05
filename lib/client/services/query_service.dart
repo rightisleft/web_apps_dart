@@ -2,7 +2,7 @@ part of ticket_client;
 
 @Injectable()
 class FlightQueryService{
-  final String BASE = 'http://localhost:5678/tickets/';
+  final String BASE = 'http://localhost:1234/tickets/';
 
   FlightQueryService() {
   }
@@ -21,7 +21,7 @@ class FlightQueryService{
   }
 
   Future purchaseTicket(String json) async {
-    return postJson(BASE + 'purchase', {}).then(handlePurchase);
+    return postJson(BASE + 'purchase', json).then(handlePurchase);
   }
 
   List<TimeDTO> handleTimes(String resp) {
@@ -42,7 +42,7 @@ class FlightQueryService{
     return dtos;
   }
 
-  TransactionDTO handlePurchase(HttpRequest response) {
+  TransactionDTO handlePurchase(String response) {
     Dartson converter = new Dartson.JSON();
     TransactionDTO dtos = converter.decode(response, new TransactionDTO());
     return dtos;

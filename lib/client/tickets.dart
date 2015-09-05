@@ -12,8 +12,8 @@ part of ticket_client;
   const Route(path: '/flights', component: ViewFlights, as: 'flights'),
   const Route(path: '/contact', component: Picker, as: 'contact'),
   const Route(path: '/picker/:cityDepart/:cityArrival/:dateDepart/:dateArrival/', component: FlightDisplay, as: 'picker'),
-  const Route(path: '/order/:id/:level/:dateDepart/:dateArrival/', component: ViewOrder, as: 'order')
-//  const Route(path: '/order/success', component: FlightDisplay, as: 'orderSuccess')
+  const Route(path: '/order/:id/:level/:dateDepart/:dateArrival/', component: ViewOrder, as: 'order'),
+  const Route(path: '/order/complete', component: ViewComplete, as: 'orderComplete')
 ])
 class Tickets {
   String name = 'Jit Ticket Application';

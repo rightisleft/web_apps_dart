@@ -33,5 +33,3 @@ transformers:
     commandLineOptions:
     - --dump-info
     - --show-package-warnings
-    - --trust-type-annotations
-    - --trust-primitives

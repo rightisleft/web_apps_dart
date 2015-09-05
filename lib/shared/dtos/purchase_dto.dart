@@ -5,10 +5,14 @@ class PurchaseDTO extends BaseDTO
 {
   String collection_key = "Purchases";
 
-  num flightID;
-  num flightLevel;
-  num ccn;
-  num ccv;
+  //should be nums
+  int flightID;
+  int flightLevel;
+
+  String ccn;
+  String ccv;
+  String bZip;
+
   String ccType;
   String ccExpiration;
 
@@ -23,7 +27,11 @@ class PurchaseDTO extends BaseDTO
   String bAddress;
   String bCity;
   String bState;
-  num bZip;
   String bCountry;
   String transactionId;
+
+
+
+
+
 }

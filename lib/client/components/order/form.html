@@ -3,6 +3,7 @@
 
     <div class="col-lg-4">
         <h3>Passenger Information</h3>
+
         <div class="form-group">
             <label for="first">First Name</label>
             <input type="text" id="first" [(ng-model)]="dto.pFirstName" class="form-control" [required]="true"/>
@@ -102,7 +103,7 @@
 
         <div style="text-align: right">
             <button type="reset" class="btn btn-primary">Clear</button>
-            <button type="submit" class="btn btn-warning" ng-disabled="orderForm.invalid">Buy Ticket</button>
+            <button type="submit" class="btn btn-warning" (click)="onSubmit()">Buy Ticket</button>
         </div>
     </div>
 </form>

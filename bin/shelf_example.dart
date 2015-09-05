@@ -12,7 +12,8 @@ void main() {
   var path = Platform.script.toFilePath();
   var currentDirectory = dirname(path);
   var fullPath  = join(currentDirectory, '..', 'build/web');
-  Handler fHandler  = createStaticHandler(fullPath , defaultDocument: 'index.html');
+  print(fullPath);
+  Handler fHandler  = createStaticHandler(fullPath , defaultDocument: 'index.html', serveFilesOutsidePath: true);
 
   Router primaryRouter = router();
   Router api = primaryRouter.child('/tickets');
@@ -28,7 +29,9 @@ void main() {
 
   Cascade cc = new Cascade().add(apiHandler).add(fHandler);
 
-  io.serve(cc.handler, '0.0.0.0', 8080);
+  io.serve(cc.handler, '0.0.0.0', 1234).then((server) {
+    print('Serving at http://${server.address.host}:${server.port}');
+  });
 }
 
 Map CORSHeader = {'content-type': 'text/json',

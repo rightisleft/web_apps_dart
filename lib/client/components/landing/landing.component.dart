@@ -21,10 +21,10 @@ class Landing{
   }
 
   Future init() async  {
-  String result = await HttpRequest.getString('/web_apps_dart/web/deals.json');
-  JsonObject response = new JsonObject.fromJsonString(result);
-  deals = response.deals;
-  print(deals);
+  String result = await HttpRequest.getString('deals.json');
+    var response = JSON.decode(result);
+    deals = response['deals'];
+    print(deals);
   }
 
 }

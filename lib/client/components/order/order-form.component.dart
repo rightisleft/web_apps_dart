@@ -4,6 +4,7 @@ part of ticket_client;
   selector: 'order-form'
 )
 @View(
+  directives: const[FORM_DIRECTIVES],
   styleUrls: const ["package:tickets/client/components/order/order.css"],
   templateUrl: "package:tickets/client/components/order/form.html"
 )
@@ -36,17 +37,14 @@ class OrderForm extends Object {
     }
   }
 
-  onSubmit()
-  {
+  Future onSubmit() async  {
     print(orderForm);
     print(dto);
     print('--complete--');
     var dson = new Dartson.JSON();
     String jsonString = dson.encode(dto);
     print(jsonString);
-    queryService.purchaseTicket(jsonString).then((TransactionDTO response){
-    shared.transaction = response;
-//      _router.navigate('success', {});
-    });
+    shared.transaction = await queryService.purchaseTicket(jsonString);
+    _router.navigate('/order/complete').then((item) => print(item) );
   }
 }

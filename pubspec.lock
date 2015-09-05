@@ -72,7 +72,7 @@ packages:
   dquery:
     description: dquery
     source: hosted
-    version: "0.7.1"
+    version: "0.7.1+1"
   either:
     description: either
     source: hosted
@@ -80,7 +80,7 @@ packages:
   fixnum:
     description: fixnum
     source: hosted
-    version: "0.9.1+2"
+    version: "0.10.2"
   guinness:
     description: guinness
     source: hosted

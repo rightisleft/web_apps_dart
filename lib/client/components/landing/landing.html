@@ -1,9 +1,9 @@
 <div  *ng-for="#t of deals; #i=index" class="col-xs-4">
   <div class="deal-box well clearfix">
-    <img [src]="t.image" alt="">
-    <h3>{{ t.city_departure + " to " + t.city_arrival }}</h3>
-    <h4>{{ t.date }}</h4>
-    <p>{{ t.description }}</p>
-    <h5>{{ t.price }}</h5>
+    <img [src]="t['image']" alt="">
+    <h3>{{ t['city_departure'] + " to " + t['city_arrival'] }}</h3>
+    <h4>{{ t['date'] }}</h4>
+    <p>{{ t['description'] }}</p>
+    <h5>{{ t['price'] }}</h5>
   </div>
 </div>
