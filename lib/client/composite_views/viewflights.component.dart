@@ -4,10 +4,10 @@ part of ticket_client;
   selector: 'view-flights'
 )
 @View(
-  directives: const [FlightDisplay, Picker],
+  directives: const [FlightDisplay, Picker, Topnav],
   template:
   '''
-    <h1>Flights</h1>
+    <topnav></topnav>
     <picker></picker>
     <flight-display></flight-display>
   '''

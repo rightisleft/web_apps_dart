@@ -4,14 +4,13 @@ part of ticket_client;
     selector: 'tickets'
 )
 @View(
-    template: '<topnav></topnav><router-outlet></router-outlet>',
-    directives: const [Topnav, RouterOutlet]
+    template: '<router-outlet></router-outlet>',
+    directives: const [RouterOutlet]
 )
 @RouteConfig(const [
-  const Route(path: '/landing', component: Landing, as: 'landing'),
+  const Route(path: '/landing', component: ViewLanding, as: 'landing'),
   const Route(path: '/flights', component: ViewFlights, as: 'flights'),
-  const Route(path: '/contact', component: Picker, as: 'contact'),
-  const Route(path: '/picker/:cityDepart/:cityArrival/:dateDepart/:dateArrival/', component: FlightDisplay, as: 'picker'),
+  const Route(path: '/picker/:cityDepart/:cityArrival/:dateDepart/:dateArrival/', component: ViewFlights, as: 'picker'),
   const Route(path: '/order/:id/:level/:dateDepart/:dateArrival/', component: ViewOrder, as: 'order'),
   const Route(path: '/order/complete', component: ViewComplete, as: 'orderComplete')
 ])
@@ -23,5 +22,6 @@ class Tickets {
     router.subscribe( (value) {
       print("Route changed to: $value");
     });
+    router.navigate('landing');
   }
 }

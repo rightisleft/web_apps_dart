@@ -29,7 +29,6 @@ class Picker extends Object {
   void populateCitites() {
     queryService.fetchCities().then( (List<CityDTO> dtos) {
       cities = dtos;
-      cities.forEach((CityDTO city) => print(city.airportcode));
     });
   }
 

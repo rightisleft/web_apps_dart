@@ -12,7 +12,6 @@ void main() {
   var path = Platform.script.toFilePath();
   var currentDirectory = dirname(path);
   var fullPath  = join(currentDirectory, '..', 'build/web');
-  print(fullPath);
   Handler fHandler  = createStaticHandler(fullPath , defaultDocument: 'index.html', serveFilesOutsidePath: true);
 
   Router primaryRouter = router();

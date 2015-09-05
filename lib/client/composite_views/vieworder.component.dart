@@ -4,9 +4,10 @@ part of ticket_client;
   selector: 'view-order'
 )
 @View(
-  directives: const [OrderForm, Recap],
+  directives: const [OrderForm, Recap, Topnav],
   template:
   '''
+    <topnav></topnav>
     <recap></recap>
     <order-form></order-form>
   '''

@@ -27,7 +27,6 @@ class OrderForm extends Object {
     if(routeParams != null && routeParams.params.isEmpty == false)
     {
       List<TimeDTO> dtos = await queryService.fetchFlightByNumber(routeParams.params['id'].toString());
-      print(dtos);
       timeDTO = dtos.first;
       dto.flightID = timeDTO.flight;
       dto.flightLevel = int.parse( routeParams.params['level'].toString() );
@@ -38,12 +37,8 @@ class OrderForm extends Object {
   }
 
   Future onSubmit() async  {
-    print(orderForm);
-    print(dto);
-    print('--complete--');
     var dson = new Dartson.JSON();
     String jsonString = dson.encode(dto);
-    print(jsonString);
     shared.transaction = await queryService.purchaseTicket(jsonString);
     _router.navigate('/order/complete').then((item) => print(item) );
   }

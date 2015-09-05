@@ -13,16 +13,15 @@ part of ticket_client;
 class Topnav{
   List<NavButtonDTO> buttons;
   Router _router;
+  RouteParams params;
 
-  Topnav(Router router) {
+  Topnav(Router router, RouteParams this.params) {
     _router = router;
     buttons = initbuttons();
     buttons.forEach((NavButtonDTO dto) => dto.isActive = dto.route == "");
-    print('--topnav--');
   }
 
   void go(String url) {
-    print('goto: '  + url);
     this._router.navigate(url);
   }
 
@@ -30,7 +29,6 @@ class Topnav{
     List<NavButtonDTO> buttons = new List<NavButtonDTO>();
     buttons.add( new NavButtonDTO()..route = "/landing"..content="Home");
     buttons.add( new NavButtonDTO()..route = "/flights"..content="Flights" );
-    buttons.add( new NavButtonDTO()..route = "/contact"..content="Contact" );
     return buttons;
   }
 }

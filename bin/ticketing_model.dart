@@ -18,11 +18,11 @@ class TicketingModel extends Object {
     PurchaseDTO purchaseDTO = dson.map(params, new PurchaseDTO() );
 
     TransactionDTO tDTO = new TransactionDTO();
-    tDTO.paid = 1000;  //we're faking a successful creditcard payment
+    tDTO.paid = 1000;  //we're faking a successful creditcard payment!
     tDTO.user = purchaseDTO.pEmail;
 
     await _mongo.createByItem(tDTO);
-    purchaseDTO.transactionId = tDTO.id;
+    purchaseDTO.transactionId = tDTO.id.toString();
     return _mongo.createByItem(purchaseDTO);
   }
 

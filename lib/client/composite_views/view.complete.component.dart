@@ -4,9 +4,10 @@ part of ticket_client;
   selector: 'view-complete'
 )
 @View(
-  directives: const [routerDirectives],
+  directives: const [routerDirectives, Topnav],
   template:
   '''
+    <topnav></topnav>
     <div class="alert alert-success" role="alert" style="margin: 30px auto; width: 33%;">
         <strong>Well done!</strong>
         You're ticket has been purchased!

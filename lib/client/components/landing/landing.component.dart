@@ -24,8 +24,6 @@ class Landing{
   String result = await HttpRequest.getString('deals.json');
     var response = JSON.decode(result);
     deals = response['deals'];
-    print(deals);
   }
-
 }
 
