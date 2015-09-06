@@ -29,8 +29,8 @@ part 'services/query_service.dart';
 part 'services/shared_data.dart';
 
 part 'composite_views/view.complete.component.dart';
-part 'composite_views/viewflights.component.dart';
-part 'composite_views/vieworder.component.dart';
+part 'composite_views/view.flights.component.dart';
+part 'composite_views/view.order.component.dart';
 part 'composite_views/view.landing.component.dart';
 
 
