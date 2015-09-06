@@ -9,9 +9,7 @@ void main() {
   bootstrap(Tickets, [
     routerInjectables,
     client_classes,
-    // The base path of your application
     bind(APP_BASE_HREF).toValue('/'),
-    // uncomment this if you want to use '#' in your url
     bind(LocationStrategy).toClass(HashLocationStrategy)
   ]);
 }
