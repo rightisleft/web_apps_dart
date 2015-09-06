@@ -12,5 +12,8 @@ part of ticket_client;
   '''
 )
 class ViewLanding {
-  ViewLandingViewLanding();
+  RouteParams params;
+  ViewLanding(RouteParams this.params) {
+    print(params);
+  }
 }

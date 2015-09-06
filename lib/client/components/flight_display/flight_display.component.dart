@@ -28,7 +28,7 @@ class FlightDisplay extends Object {
 
   void set emitter(val) {
     external_emitter = val;
-    external_emitter.listen((item) => print(item));
+    external_emitter.listen(fetchData);
   }
 
   EventEmitter get emitter{
@@ -43,7 +43,7 @@ class FlightDisplay extends Object {
     }
   }
 
-  void fetchData(FlightPostParamsDTO params) {
+  fetchData(params) {
     queryService.fetchFlightTimes(params).then( (List<TimeDTO> dtos) {
       flight_times = dtos;
     });

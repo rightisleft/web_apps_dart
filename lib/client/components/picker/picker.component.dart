@@ -49,8 +49,7 @@ class Picker extends Object {
 
   onSubmit()
   {
-    external_emitter.add({'val': 'Success!!'});
-
+    external_emitter.add( info );
 //    Instruction _navigationInstruction = this._router.generate(['/picker', info.toPostable() ]);
 //    this._router.navigateInstruction(_navigationInstruction);
   }

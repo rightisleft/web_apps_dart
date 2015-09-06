@@ -8,6 +8,7 @@ part of ticket_client;
     directives: const [RouterOutlet]
 )
 @RouteConfig(const [
+  const Route(path: '/', component: ViewLanding, as: 'home'),
   const Route(path: '/landing', component: ViewLanding, as: 'landing'),
   const Route(path: '/flights', component: ViewFlights, as: 'flights'),
   const Route(path: '/picker/:cityDepart/:cityArrival/:dateDepart/:dateArrival/', component: ViewFlights, as: 'picker'),
@@ -22,6 +23,5 @@ class Tickets {
     router.subscribe( (value) {
       print("Route changed to: $value");
     });
-    router.navigate('landing');
   }
 }
