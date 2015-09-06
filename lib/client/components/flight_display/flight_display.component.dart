@@ -6,7 +6,8 @@ part of ticket_client;
 @View(
   styleUrls: const ["package:tickets/client/components/flight_display/flight_display.css"],
   templateUrl: "package:tickets/client/components/flight_display/flight_display.html",
-  directives: const[CORE_DIRECTIVES]
+  directives: const[CORE_DIRECTIVES],
+  encapsulation: ViewEncapsulation.NONE
 )
 class FlightDisplay extends Object {
 

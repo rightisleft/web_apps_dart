@@ -1,8 +1,7 @@
 part of ticket_client;
 
 @Component(
-  selector: 'picker',
-  properties: const ['depart']
+  selector: 'picker'
 )
 @View(
   styleUrls: const ["package:tickets/client/components/picker/picker.css"],
@@ -29,6 +28,7 @@ class Picker extends Object {
   void populateCitites() {
     queryService.fetchCities().then( (List<CityDTO> dtos) {
       cities = dtos;
+
     });
   }
 

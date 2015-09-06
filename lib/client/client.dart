@@ -4,20 +4,18 @@ import 'dart:async';
 import 'dart:html';
 import 'dart:convert';
 
-//pub
+//angular2
 import 'package:angular2/angular2.dart';
 import 'package:angular2/bootstrap.dart';
 import 'package:angular2/router.dart';
-import 'package:angular2/directives.dart';
-import 'package:angular2/di.dart';
+import 'package:angular2/angular2_exports.dart';
 
+//data
+import 'package:tickets/shared/schemas.dart';
 import 'package:dartson/dartson.dart';
 
-//shared
-import 'package:tickets/shared/schemas.dart';
-
+//components
 part 'tickets.dart';
-
 part 'components/flight_display/flight_display.component.dart';
 part 'components/landing/landing.component.dart';
 part 'components/order/order-form.component.dart';
@@ -33,5 +31,5 @@ part 'composite_views/view.flights.component.dart';
 part 'composite_views/view.order.component.dart';
 part 'composite_views/view.landing.component.dart';
 
-
+//injectables
 const List<Type> client_classes = const [ViewLanding, Landing,Topnav, Tickets, BaseDTO, ViewFlights, FlightDisplay,  OrderForm, Recap, Picker, FlightQueryService, SharedData, ViewComplete];
