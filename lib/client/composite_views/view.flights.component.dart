@@ -8,10 +8,12 @@ part of ticket_client;
   template:
   '''
     <topnav></topnav>
-    <picker></picker>
-    <flight-display></flight-display>
+    <picker [emitter]="emt"></picker>
+    <flight-display [emitter]="emt"></flight-display>
   '''
 )
 class ViewFlights extends Object {
+  Map item = {'name': 'Jack'};
+  EventEmitter emt = new EventEmitter();
   ViewFlights();
 }

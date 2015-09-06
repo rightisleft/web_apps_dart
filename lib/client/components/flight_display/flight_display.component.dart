@@ -1,7 +1,8 @@
 part of ticket_client;
 
 @Component(
-    selector: 'flight-display'
+    selector: 'flight-display',
+    properties: const ['emitter']
 )
 @View(
   styleUrls: const ["package:tickets/client/components/flight_display/flight_display.css"],
@@ -23,6 +24,17 @@ class FlightDisplay extends Object {
   List<TimeDTO> flight_times;
   List<RouteDTO> routes;
 
+  EventEmitter external_emitter;
+
+  void set emitter(val) {
+    external_emitter = val;
+    external_emitter.listen((item) => print(item));
+  }
+
+  EventEmitter get emitter{
+    return external_emitter;
+  }
+
   FlightDisplay(Router this.router, RouteParams this.routeParams, FlightQueryService this.queryService) {
     if(routeParams.params != null && routeParams.params.isEmpty == false)
     {
@@ -41,6 +53,7 @@ class FlightDisplay extends Object {
   {
     var post = params.toPostable();
     post['id'] = time.flight;
+
     post['level'] = service_level;
     Instruction _navigationInstruction = router.generate(['/order', post]);
     router.navigateInstruction(_navigationInstruction);

@@ -1,7 +1,8 @@
 part of ticket_client;
 
 @Component(
-  selector: 'picker'
+  selector: 'picker',
+  properties: const ['emitter']
 )
 @View(
   styleUrls: const ["package:tickets/client/components/picker/picker.css"],
@@ -15,6 +16,16 @@ class Picker extends Object {
   List<CityDTO> cities;
   FlightQueryService queryService;
   String depart_city;
+
+  EventEmitter external_emitter;
+
+  void set emitter(val) {
+    external_emitter = val;
+  }
+
+  EventEmitter get zebra{
+    return external_emitter;
+  }
 
   Picker(Router this._router, FlightQueryService this.queryService) {
     populateCitites();
@@ -38,7 +49,9 @@ class Picker extends Object {
 
   onSubmit()
   {
-    Instruction _navigationInstruction = this._router.generate(['/picker', info.toPostable() ]);
-    this._router.navigateInstruction(_navigationInstruction);
+    external_emitter.add({'val': 'Success!!'});
+
+//    Instruction _navigationInstruction = this._router.generate(['/picker', info.toPostable() ]);
+//    this._router.navigateInstruction(_navigationInstruction);
   }
 }
