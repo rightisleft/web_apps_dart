@@ -37,7 +37,7 @@ class FlightPostParamsDTO {
     instance.cityArrival = aMap['cityArrival'];
     instance.cityDepart = aMap['cityDepart'];
     instance.dateDepart = aMap['dateDepart'];
-    instance.dateArrival = aMap['dateDepart']; //Todo: Jack Murphy to normalize
+    instance.dateArrival = aMap['dateDepart']; //Todo: Jack Murphy to depricate
 
     instance._dateDepart= DateTime.parse(aMap['dateDepart']);
     instance._dateArrival= DateTime.parse(aMap['dateArrival']);

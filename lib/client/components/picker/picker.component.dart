@@ -11,6 +11,8 @@ part of ticket_client;
 )
 class Picker extends Object {
   Router _router;
+  RouteParams routeParams;
+
   NgForm flightForm;
   FlightPostParamsDTO info = new FlightPostParamsDTO();
   List<CityDTO> cities;
@@ -27,7 +29,9 @@ class Picker extends Object {
     return external_emitter;
   }
 
-  Picker(Router this._router, FlightQueryService this.queryService) {
+
+
+  Picker(Router this._router, FlightQueryService this.queryService, RouteParams this.routeParams) {
     populateCitites();
     populateState();
   }
@@ -44,13 +48,16 @@ class Picker extends Object {
   }
 
   void populateState() {
-//    info = info.setup(_routeProvider.parameters, info);
+    if(routeParams.params != null && routeParams.params.isNotEmpty )
+    {
+      info = info.setup(routeParams.params, info);
+    }
   }
 
   onSubmit()
   {
-    external_emitter.add( info );
-//    Instruction _navigationInstruction = this._router.generate(['/picker', info.toPostable() ]);
-//    this._router.navigateInstruction(_navigationInstruction);
+//    external_emitter.add( info );
+    Instruction _navigationInstruction = this._router.generate(['/picker', info.toPostable() ]);
+    this._router.navigateInstruction(_navigationInstruction);
   }
 }

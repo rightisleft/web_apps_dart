@@ -15,7 +15,7 @@ import 'package:tickets/shared/schemas.dart';
 import 'package:dartson/dartson.dart';
 
 //components
-part 'tickets.dart';
+part 'main.tickets.component.dart';
 part 'components/flight_display/flight_display.component.dart';
 part 'components/landing/landing.component.dart';
 part 'components/order/order-form.component.dart';
@@ -28,8 +28,9 @@ part 'services/shared_data.dart';
 
 part 'composite_views/view.complete.component.dart';
 part 'composite_views/view.flights.component.dart';
+part 'composite_views/view.example.component.dart';
 part 'composite_views/view.order.component.dart';
 part 'composite_views/view.landing.component.dart';
 
 //injectables
-const List<Type> client_classes = const [ViewLanding, Landing,Topnav, Tickets, BaseDTO, ViewFlights, FlightDisplay,  OrderForm, Recap, Picker, FlightQueryService, SharedData, ViewComplete];
+const List<Type> client_classes = const [ExampleComponent, ViewLanding, Landing,Topnav, Tickets, BaseDTO, ViewFlights, FlightDisplay,  OrderForm, Recap, Picker, FlightQueryService, SharedData, ViewComplete];
