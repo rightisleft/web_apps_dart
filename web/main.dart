@@ -10,5 +10,5 @@ void main() {
                             client_classes,
                             bind(APP_BASE_HREF).toValue('/'),
                            bind(LocationStrategy).toClass(HashLocationStrategy)];
-  bootstrap(primaryView, inejectableBindings);
+  bootstrap(appComponent, inejectableBindings);
 }

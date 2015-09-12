@@ -14,7 +14,7 @@ part of ticket_client;
   <div class='robot'>  I am a Robot  </div>
   <a class='btn' (click)='shootRobot()'>Shoot The Robot</a>
   <div template="ng-if 1 + 1 == 2">Your math is good!</div>
-  <a href="#" *ng-class="{.btn: true}">Test</a>
+  <a href="#" *ng-class="{'.btn': true}">Test</a>
   '''
 )
 class ExampleComponent {
