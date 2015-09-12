@@ -6,9 +6,9 @@ import 'package:tickets/client/client.dart';
 
 void main() {
   var appComponent = Tickets;
-  var inejectableBindings = [ routerInjectables,
-                            client_classes,
+  var inejectableBindings = [ ROUTER_BINDINGS, client_classes,
                             bind(APP_BASE_HREF).toValue('/'),
                            bind(LocationStrategy).toClass(HashLocationStrategy)];
+
   bootstrap(appComponent, inejectableBindings);
 }

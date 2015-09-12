@@ -7,7 +7,7 @@ part of ticket_client;
 )
 @View(
   directives: const [CORE_DIRECTIVES],
-  encapsulation: ViewEncapsulation.NONE,
+//  encapsulation: ViewEncapsulation.NONE,
   template:
   '''
   <h3>Strength: {{ strength }}</h3>

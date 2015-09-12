@@ -7,7 +7,7 @@ part of ticket_client;
 @View (
   styles: const ["package:tickets/client/components/topnav/topnav.css"],
   templateUrl: "package:tickets/client/components/topnav/topnav.html",
-  directives: const [CORE_DIRECTIVES, routerDirectives]
+  directives: const [CORE_DIRECTIVES, ROUTER_DIRECTIVES]
 )
 
 class Topnav{

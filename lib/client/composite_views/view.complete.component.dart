@@ -4,7 +4,7 @@ part of ticket_client;
   selector: 'view-complete'
 )
 @View(
-  directives: const [routerDirectives, Topnav],
+  directives: const [ROUTER_DIRECTIVES, Topnav],
   template:
   '''
     <topnav></topnav>

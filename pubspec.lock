@@ -8,7 +8,7 @@ packages:
   angular2:
     description: angular2
     source: hosted
-    version: "2.0.0-alpha.35"
+    version: "2.0.0-alpha.37"
   args:
     description: args
     source: hosted
@@ -81,6 +81,10 @@ packages:
     description: fixnum
     source: hosted
     version: "0.10.2"
+  glob:
+    description: glob
+    source: hosted
+    version: "1.0.5"
   guinness:
     description: guinness
     source: hosted

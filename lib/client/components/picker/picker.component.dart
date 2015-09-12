@@ -7,7 +7,7 @@ part of ticket_client;
 @View(
   styleUrls: const ["package:tickets/client/components/picker/picker.css"],
   templateUrl: "package:tickets/client/components/picker/picker.html",
-  directives: const [CORE_DIRECTIVES, FORM_DIRECTIVES, routerDirectives]
+  directives: const [CORE_DIRECTIVES, FORM_DIRECTIVES, ROUTER_DIRECTIVES]
 )
 class Picker extends Object {
   Router _router;

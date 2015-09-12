@@ -19,7 +19,7 @@ class Tickets {
   String name = 'Jit Ticket Application';
   Router router;
 
-  Tickets(this.router) {
+  Tickets(Router this.router) {
     router.subscribe( (value) {
       print("Route changed to: $value");
     });
