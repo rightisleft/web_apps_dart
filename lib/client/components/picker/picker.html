@@ -1,6 +1,6 @@
 <a [router-link]="['/picker', {'cityDepart': 'SAN', 'cityArrival': 'SFO', 'dateDepart': '2015-01-01', 'dateArrival': '2015-01-02'}]">Picker - router-link</a>
 
-<form #aform="form" (submit)="onFind(aform.value)" novalidate onsubmit="return false;" class="clearfix">
+<form (submit)="onFind()" novalidate class="clearfix">
   <div class="group">
     <select id="city-depart" [(ng-model)]='info.cityDepart' class="form-control">
       <option *ng-for="#vo of cities" [value]="vo.airportcode">{{ vo.city }}</option>

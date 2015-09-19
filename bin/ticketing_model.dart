@@ -20,7 +20,7 @@ class TicketingModel extends Object {
     TransactionDTO tDTO = new TransactionDTO();
     tDTO.paid = 1000;  //we're faking a successful creditcard payment
     tDTO.user = purchaseDTO.pEmail;
-
+    http://localhost:8080/#/picker/SAN/SFO/2015-01-01/2015-01-02
     await _mongo.createByItem(tDTO);
     purchaseDTO.transactionId = tDTO.id.toString();
     return _mongo.createByItem(purchaseDTO);

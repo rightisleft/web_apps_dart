@@ -12,11 +12,9 @@ class Picker extends Object {
   Router _router;
   RouteParams routeParams;
 
-  NgForm flightForm;
   FlightFormatter info = new FlightFormatter();
   List<CityDTO> cities;
   FlightQueryService queryService;
-  String depart_city;
 
   Picker(Router this._router, FlightQueryService this.queryService,
       RouteParams this.routeParams) {
@@ -24,7 +22,7 @@ class Picker extends Object {
     populateState();
   }
 
-  void onFind(city) {
+  void onFind() {
     onSubmit();
   }
 

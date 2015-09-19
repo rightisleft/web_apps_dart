@@ -24,7 +24,7 @@ class FlightDisplay extends Object {
   List<TimeDTO> flight_times;
   List<RouteDTO> routes;
 
-  EventEmitter external_emitter;
+  TimeDTO selectedDTO;
 
   void set emitter(val) {
     external_emitter = val;
@@ -47,6 +47,19 @@ class FlightDisplay extends Object {
     queryService.fetchFlightTimes(params).then( (List<TimeDTO> dtos) {
       flight_times = dtos;
     });
+  }
+
+  void select(TimeDTO tdto, level) {
+    service_level = level;
+    selectedDTO = tdto;
+  }
+
+  bool isSelected(TimeDTO value) {
+    if(selectedDTO != null)
+    {
+      return selectedDTO.flight == value.flight;
+    }
+    return false;
   }
 
   void onsubmit(TimeDTO time)
