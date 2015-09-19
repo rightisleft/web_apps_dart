@@ -1,12 +1,12 @@
 part of ticket_schemas;
 
-class FlightPostParamsVO {
+class FlightFormatter {
   String cityDepart;
   String cityArrival;
   DateTime dateDepart;
   DateTime dateArrival;
 
-  FlightPostParamsVO();
+  FlightFormatter();
 
   Map toPostable() {
     var f = new DateFormat('yyyy-MM-dd');
@@ -19,13 +19,13 @@ class FlightPostParamsVO {
     return f.format(value);
   }
 
-  factory FlightPostParamsVO.FromPost(Map aMap) {
-    FlightPostParamsVO instance = new FlightPostParamsVO();
+  factory FlightFormatter.FromPost(Map aMap) {
+    FlightFormatter instance = new FlightFormatter();
     instance.setup(aMap, instance);
     return instance;
   }
 
-  FlightPostParamsVO setup(Map aMap, FlightPostParamsVO instance)
+  FlightFormatter setup(Map aMap, FlightFormatter instance)
   {
     instance.cityArrival = aMap['cityArrival'];
     instance.cityDepart = aMap['cityDepart'];

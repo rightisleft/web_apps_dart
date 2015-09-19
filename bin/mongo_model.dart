@@ -9,13 +9,10 @@ import "dart:mirrors";
 
 class MongoModel {
 
-  String DATABASE_NAME;
-  String DATABASE_URL;
-  int DATABASE_POOL_SIZE = 10;
   MongoPool _dbPool;
 
-  MongoModel(this.DATABASE_NAME, this.DATABASE_URL, this.DATABASE_POOL_SIZE) {
-    _dbPool = new MongoPool(DATABASE_URL + DATABASE_NAME, DATABASE_POOL_SIZE);
+  MongoModel(String _databaseName, String _databaseUrl, int _databasePoolSize) {
+    _dbPool = new MongoPool(_databaseUrl + _databaseName, _databasePoolSize);
   }
 
   Future<Map> createByItem(BaseDTO item) {

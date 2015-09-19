@@ -1,0 +1,15 @@
+<section>
+  <nav class="navbar navbar-default">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/index.html">Just-In-Time Airlines</a>
+    </div>
+    <div class="pull-right">
+      <a *ng-for="#aButton of buttons; #i = index"
+         type="button"
+         style="margin-right: 15px;"
+         class="btn btn-info navbar-btn"
+         [router-link]="[aButton.route]"
+         ng-class="{active: aButton.isActive}">{{ aButton.content }}</a>
+    </div>
+  </nav>
+</section>

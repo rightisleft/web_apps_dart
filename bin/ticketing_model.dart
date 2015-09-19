@@ -22,7 +22,7 @@ class TicketingModel extends Object {
     tDTO.user = purchaseDTO.pEmail;
 
     await _mongo.createByItem(tDTO);
-    purchaseDTO.transactionId = tDTO.id;
+    purchaseDTO.transactionId = tDTO.id.toString();
     return _mongo.createByItem(purchaseDTO);
   }
 

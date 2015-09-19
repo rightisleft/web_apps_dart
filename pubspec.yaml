@@ -18,15 +18,15 @@ dependencies:
 #Client Dependencies
   bootjack: "0.6.5"
   browser: ">=0.10.0+2 <0.11.0"
+  intl: "0.12.4+2"
   sass: "0.4.2"
-  angular2: "2.0.0-alpha.36"
+  angular2: "2.0.0-alpha.37"
+  unittest: any
 transformers:
 - dartson
 - sass
 - angular2:
     entry_points:
-        - web/main.dart
-    reflection_entry_points:
         - web/main.dart
 - $dart2js:
     minify: true

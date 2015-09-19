@@ -1,0 +1,6 @@
+<h2>Recap</h2>
+<div *ng-if="shared.timeDTO != null" class="well" style="text-align: center;">
+  <h4>Flight # {{ shared.timeDTO.flight }}</h4>
+  <div>{{ shared.timeDTO.departure + ' to ' + shared.timeDTO.arrival }}</div>
+  <div>{{ flightDTO.dateDepart + ' at ' + shared.timeDTO.takeoff.toString() }}</div>
+</div>
