@@ -45,7 +45,7 @@ main() {
       });
     });
 
-    var timesPost = {"cityDepart":"SFO","cityArrival":"SAN","dateDepart":"2015-12-31","dateArrival":"2015-12-31"};
+    var timesPost = {"cityDepart":"SFO","cityArrival":"SAN","dateDepart":"2015-12-31"};
     it("Should get times based on arrival and departure city", () {
       return model.getTimesByCity(timesPost).then((List<TimeDTO> dtos){
         expect(dtos.first.flight).toBe(1016);

@@ -1,5 +1,5 @@
 <h2>Order Page</h2>
-<form novalidate id="orderForm" name="orderForm" onsubmit="return false;">
+<form novalidate (submit)="onSubmit()">
 
   <div class="col-lg-4">
     <h3>Passenger Information</h3>
@@ -103,7 +103,7 @@
 
     <div style="text-align: right">
       <button type="reset" class="btn btn-primary">Clear</button>
-      <button type="submit" class="btn btn-warning" (click)="onSubmit()">Buy Ticket</button>
+      <button type="submit" class="btn btn-warning">Buy Ticket</button>
     </div>
   </div>
 </form>

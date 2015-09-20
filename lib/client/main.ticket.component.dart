@@ -11,8 +11,8 @@ part of ticket_client;
   const Route(path: '/', component: ViewLanding, as: 'home'),
   const Route(path: '/landing', component: ViewLanding, as: 'landing'),
   const Route(path: '/flights', component: ViewFlights, as: 'flights'),
-  const Route(path: '/picker/:cityDepart/:cityArrival/:dateDepart/:dateArrival/', component: ViewFlights, as: 'picker'),
-  const Route(path: '/order/:id/:level/:dateDepart/:dateArrival/', component: ViewOrder, as: 'order'),
+  const Route(path: '/picker/:cityDepart/:cityArrival/:dateDepart/', component: ViewFlights, as: 'picker'),
+  const Route(path: '/order/:id/:level/:dateDepart/', component: ViewOrder, as: 'order'),
   const Route(path: '/order/complete', component: ViewComplete, as: 'orderComplete')
 ])
 class Tickets {

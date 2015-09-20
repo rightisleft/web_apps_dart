@@ -11,35 +11,35 @@ part of ticket_client;
 class OrderForm extends Object {
 
   Router _router;
-  RouteParams routeParams;
-  FlightQueryService queryService;
+  RouteParams _routeParams;
+  FlightQueryService _queryService;
   TimeDTO timeDTO;
-  Recap recap;
-  PurchaseDTO dto = new PurchaseDTO();
-  NgForm orderForm;
-  SharedData shared;
+  SharedData _shared;
+  PurchaseDTO dto;
 
-  OrderForm(Router this._router, RouteParams this.routeParams, FlightQueryService this.queryService, SharedData this.shared) {
+  OrderForm(Router this._router, RouteParams this._routeParams, FlightQueryService this._queryService, SharedData this._shared) {
     fetch();
   }
 
   Future fetch() async {
-    if(routeParams != null && routeParams.params.isEmpty == false)
+    if(_routeParams != null && _routeParams.params.isEmpty == false)
     {
-      List<TimeDTO> dtos = await queryService.fetchFlightByNumber(routeParams.params['id'].toString());
+      List<TimeDTO> dtos = await _queryService.fetchFlightByNumber(_routeParams.params['id'].toString());
       timeDTO = dtos.first;
-      dto.flightID = timeDTO.flight;
-      dto.flightLevel = int.parse( routeParams.params['level'].toString() );
 
-      shared.purchaseDTO = dto;
-      shared.timeDTO = timeDTO;
+      dto = new PurchaseDTO();
+      dto.flightID = timeDTO.flight;
+      dto.flightLevel = int.parse( _routeParams.params['level'].toString() );
+
+      _shared.purchaseDTO = dto;
+      _shared.timeDTO = timeDTO;
     }
   }
 
   Future onSubmit() async  {
     var dson = new Dartson.JSON();
     String jsonString = dson.encode(dto);
-    shared.transaction = await queryService.purchaseTicket(jsonString);
+    _shared.transaction = await _queryService.purchaseTicket(jsonString);
     _router.navigate('/order/complete').then((item) => print(item) );
   }
 }
