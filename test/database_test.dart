@@ -3,8 +3,13 @@ import 'package:tickets/shared/schemas.dart';
 import 'package:tickets/db/seeder.dart';
 import 'package:tickets/db/db_config.dart';
 import '../bin/mongo_model.dart';
-
+import 'package:logging/logging.dart';
 main() {
+
+  Logger.root.level = Level.ALL;
+  Logger.root.onRecord.listen((LogRecord rec) {
+    print('${rec.level.name}: ${rec.time}: ${rec.message}');
+  });
 
   DbConfigValues config = new DbConfigValues();
   MongoModel model = new MongoModel(config.testDbName, config.testDbURI, config.testDbSize);

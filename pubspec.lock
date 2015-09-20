@@ -64,7 +64,7 @@ packages:
   dart_style:
     description: dart_style
     source: hosted
-    version: "0.2.0"
+    version: "0.1.8+2"
   dartson:
     description: dartson
     source: hosted
@@ -124,7 +124,7 @@ packages:
   mongo_dart_query:
     description: mongo_dart_query
     source: hosted
-    version: "0.2.1"
+    version: "0.1.16"
   more:
     description: more
     source: hosted
@@ -180,11 +180,11 @@ packages:
   source_maps:
     description: source_maps
     source: hosted
-    version: "0.10.1"
+    version: "0.10.0+1"
   source_span:
     description: source_span
     source: hosted
-    version: "1.2.0"
+    version: "1.0.3"
   stack_trace:
     description: stack_trace
     source: hosted

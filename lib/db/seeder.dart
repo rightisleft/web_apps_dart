@@ -17,11 +17,10 @@ class Seeder {
 
   Seeder(String this._dbName, String this._dbURI, String this._dbSeedFile);
 
-  void readFile() {
+  Future readFile() {
     File aFile = new File(_dbSeedFile);
-    aFile.readAsString()
+    return aFile.readAsString()
         .then((String item) => new JsonObject.fromJsonString(item))
-        .then(printJson)
         .then(insertJsonToMongo)
         .then(closeDatabase);
   }
@@ -53,9 +52,7 @@ class Seeder {
     return database;
   }
 
-  void closeDatabase(Db database) {
-    database.close().then((_) {
-      exit(0);
-    });
+  Future closeDatabase(Db database) {
+    return database.close();
   }
 }
