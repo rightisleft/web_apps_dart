@@ -28,7 +28,10 @@ void main() {
 
   Cascade cc = new Cascade().add(apiHandler).add(fHandler);
 
-  io.serve(cc.handler, '0.0.0.0', 1234);
+  var systemPort = Platform.environment['PORT'];
+  var port = systemPort == null ? 1234 : int.parse(systemPort);
+
+  io.serve(cc.handler, '0.0.0.0', port);
 }
 
 Map CORSHeader = {'content-type': 'text/json',

@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'dart:async';
 import 'package:json_object/json_object.dart';
 import 'package:mongo_dart/mongo_dart.dart';
@@ -13,13 +12,13 @@ main() {
 class Seeder {
   final String _dbURI;
   final String _dbName;
-  final String _dbSeedFile;
+  final Resource _dbSeedFile;
 
-  Seeder(String this._dbName, String this._dbURI, String this._dbSeedFile);
+  Seeder(String this._dbName, String this._dbURI, Resource this._dbSeedFile);
 
   Future readFile() {
-    File aFile = new File(_dbSeedFile);
-    return aFile.readAsString()
+
+    return _dbSeedFile.readAsString()
         .then((String item) => new JsonObject.fromJsonString(item))
         .then(insertJsonToMongo)
         .then(closeDatabase);
