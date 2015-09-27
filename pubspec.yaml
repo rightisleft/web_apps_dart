@@ -26,7 +26,7 @@ transformers:
 - dartson
 - sass:
     executable:
-      /app/.heroku/sassc/bin/sassc
+      sassc
 - angular2:
     entry_points:
         - web/main.dart
