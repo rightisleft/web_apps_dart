@@ -26,7 +26,7 @@ transformers:
 - dartson
 - sass:
     executable:
-      sass
+      sassc
 - angular2:
     entry_points:
         - web/main.dart
