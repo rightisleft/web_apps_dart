@@ -26,14 +26,14 @@ transformers:
 - dartson
 - sass:
     executable:
-      sassc
+      /app/.heroku/sassc/bin/sassc
 - angular2:
     entry_points:
         - web/main.dart
 - $dart2js:
-    minify: true
+    minify: false
     commandLineOptions:
-    - --dump-info
     - --show-package-warnings
     - --trust-type-annotations
     - --trust-primitives
+    - --enable-experimental-mirrors
