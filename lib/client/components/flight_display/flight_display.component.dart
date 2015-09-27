@@ -4,7 +4,7 @@ part of ticket_client;
     selector: 'flight-display'
 )
 @View(
-    styleUrls: const ["package:tickets/client/components/flight_display/flight_display.css"],
+//    styleUrls: const ["package:tickets/client/components/flight_display/flight_display.css"],
     templateUrl: "package:tickets/client/components/flight_display/flight_display.html",
     directives: const[CORE_DIRECTIVES]
 )
