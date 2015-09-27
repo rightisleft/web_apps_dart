@@ -22,18 +22,3 @@ dependencies:
   sass: "0.4.2"
   angular2: "2.0.0-alpha.37"
   unittest: any
-transformers:
-- dartson
-- sass:
-    executable:
-      sassc
-- angular2:
-    entry_points:
-        - web/main.dart
-- $dart2js:
-    minify: false
-    commandLineOptions:
-    - --show-package-warnings
-    - --trust-type-annotations
-    - --trust-primitives
-    - --enable-experimental-mirrors

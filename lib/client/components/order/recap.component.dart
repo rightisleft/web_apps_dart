@@ -4,7 +4,7 @@ part of ticket_client;
     selector: 'recap'
 )
 @View(
-    styles: const ["package:tickets/client/components/order/recap.css"],
+    styles: const ["package:tickets/client/components/order/recap.scss"],
     templateUrl: "package:tickets/client/components/order/recap.html",
     directives: const[CORE_DIRECTIVES]
 )
