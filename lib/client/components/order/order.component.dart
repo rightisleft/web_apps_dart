@@ -5,7 +5,7 @@ part of ticket_client;
 )
 @View(
     directives: const[FORM_DIRECTIVES],
-    styleUrls: const ["package:tickets/client/components/order/order.scss"],
+//    styleUrls: const ["package:tickets/client/components/order/order.css"],
     templateUrl: "package:tickets/client/components/order/order.html"
 )
 class OrderForm extends Object {
