@@ -31,7 +31,7 @@ transformers:
     entry_points:
         - web/main.dart
 - $dart2js:
-    minify: false
+    minify: true
     commandLineOptions:
     - --show-package-warnings
     - --trust-type-annotations
