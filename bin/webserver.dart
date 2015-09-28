@@ -40,9 +40,9 @@ main() async {
   Cascade cc;
   if(new Directory(buildPath).existsSync() )
   {
-    Cascade cc = new Cascade().add(apiHandler).add(fHandler);
+    cc = new Cascade().add(apiHandler).add(fHandler);
   } else {
-    Cascade cc = new Cascade().add(apiHandler);
+    cc = new Cascade().add(apiHandler);
   }
 
   int http_port = int.parse(Platform.environment['PORT']);
