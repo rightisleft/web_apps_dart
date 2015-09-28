@@ -2,10 +2,19 @@ part of ticket_client;
 
 @Injectable()
 class FlightQueryService{
-  final String BASE = 'http://' + window.location.hostname + ':8080/tickets/';
-  final Dartson converter = new Dartson.JSON();
+  String BASE;
+  Dartson converter = new Dartson.JSON();
 
-  FlightQueryService();
+  FlightQueryService() {
+    if(window.location.hostname.indexOf('localhost') != -1 ||
+      window.location.hostname.indexOf('127.0.0.1') != -1 ||
+        window.location.hostname.indexOf('0.0.0.0') != -1)
+    {
+       BASE = 'http://' + window.location.hostname + ':8080/tickets/';
+    } else {
+      BASE = 'http://' + window.location.hostname + '/tickets/';
+    }
+  }
 
   Future postJson(url, data) {
     Completer contract = new Completer();
