@@ -19,6 +19,7 @@ main() async {
   var path = Platform.script.toFilePath();
   var currentDirectory = dirname(path);
   var fullPath  = join(currentDirectory, '..', 'build/web');
+  Handler fHandler  = createStaticHandler(fullPath, defaultDocument: 'index.html', serveFilesOutsidePath: true);
 
   print('fullPath: ' + fullPath);
   var buildPath  = join(currentDirectory, '..', 'build');
@@ -36,19 +37,10 @@ main() async {
   Pipeline pl = new Pipeline();
   pl = pl.addMiddleware(corsMiddleWare).addMiddleware(mw);
   Handler apiHandler  = pl.addHandler(primaryRouter.handler);
-  Cascade cc = new Cascade().add(apiHandler);
-
-  // if missing build directory... don't serve it
-  // this enables localhost debugging
-  if( await new Directory(buildPath).exists() )
-  {
-    print('serve build');
-    Handler fHandler  = createStaticHandler(fullPath , defaultDocument: 'index.html');
-    cc.add(fHandler);
-  }
+  Cascade cc = new Cascade().add(apiHandler).add(fHandler);
 
   int http_port = int.parse(Platform.environment['PORT']);
-
+  
   io.serve(cc.handler, '0.0.0.0',  http_port)
       .then( (HttpServer server) => print( 'http serving on: ' + server.port.toString() ));
 }
