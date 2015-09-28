@@ -44,7 +44,7 @@ main() async {
 
   int http_port = int.parse(Platform.environment['PORT']);
 
-  io.serve(cc.handler, '0.0.0.0',  http_port)
+  io.serve(cc.handler, '0.0.0.0',  80)
       .then( (HttpServer server) => print( 'http serving on: ' + server.port.toString() ));
 }
 
