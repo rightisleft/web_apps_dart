@@ -7,12 +7,19 @@ import 'package:path/path.dart';
 import 'package:shelf_static/shelf_static.dart';
 
 import 'ticketing_controller.dart' as controller;
-void main() {
+import 'package:logging/logging.dart';
+
+main() async {
+
+  Logger.root.level = Level.ALL;
+  Logger.root.onRecord.listen((LogRecord rec) {
+    print('${rec.level.name}: ${rec.time}: ${rec.message}');
+  });
 
   var path = Platform.script.toFilePath();
   var currentDirectory = dirname(path);
   var fullPath  = join(currentDirectory, '..', 'build/web');
-  Handler fHandler  = createStaticHandler(fullPath , defaultDocument: 'index.html');
+  var buildPath  = join(currentDirectory, '..', 'build');
 
   Router primaryRouter = router();
   Router api = primaryRouter.child('/tickets');
@@ -25,13 +32,20 @@ void main() {
   Pipeline pl = new Pipeline();
   pl = pl.addMiddleware(corsMiddleWare).addMiddleware(mw);
   Handler apiHandler  = pl.addHandler(primaryRouter.handler);
+  Cascade cc = new Cascade().add(apiHandler);
 
-  Cascade cc = new Cascade().add(apiHandler).add(fHandler);
+  // if missing build directory... don't serve it
+  // this enables localhost debugging
+  if( await new Directory(buildPath).exists() )
+  {
+    Handler fHandler  = createStaticHandler(fullPath , defaultDocument: 'index.html');
+    cc.add(fHandler);
+  }
 
-  var systemPort = Platform.environment['PORT'];
-  var port = systemPort == null ? 80 : int.parse(systemPort);
+  int http_port = int.parse(Platform.environment['PORT']);
 
-  io.serve(cc.handler, '0.0.0.0', port).then( (HttpServer server) => print(server.port));
+  io.serve(cc.handler, '0.0.0.0',  http_port)
+      .then( (HttpServer server) => print( 'http serving on: ' + server.port.toString() ));
 }
 
 Map CORSHeader = {'content-type': 'text/json',
