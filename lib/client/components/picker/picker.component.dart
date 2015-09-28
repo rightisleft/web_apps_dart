@@ -4,7 +4,7 @@ part of ticket_client;
     selector: 'picker'
 )
 @View(
-//    styleUrls: const ["package:tickets/client/components/picker/picker.css"],
+    styleUrls: const ["package:tickets/client/components/picker/picker.css"],
     templateUrl: "package:tickets/client/components/picker/picker.html",
     directives: const [CORE_DIRECTIVES, FORM_DIRECTIVES, ROUTER_DIRECTIVES]
 )

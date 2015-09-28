@@ -2,7 +2,7 @@ part of ticket_client;
 
 @Injectable()
 class FlightQueryService{
-  final String BASE = 'http://localhost:8080/tickets/';
+  final String BASE = '/tickets/';
   final Dartson converter = new Dartson.JSON();
 
   FlightQueryService();
