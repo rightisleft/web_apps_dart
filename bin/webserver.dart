@@ -20,10 +20,10 @@ main() async {
   var currentDirectory = dirname(path);
   var fullPath  = join(currentDirectory, '..', 'build/web');
 
-  pritn('fullPath: ' + fullPath);
+  print('fullPath: ' + fullPath);
   var buildPath  = join(currentDirectory, '..', 'build');
 
-  pritn('buildPath: ' + buildPath);
+  print('buildPath: ' + buildPath);
 
   Router primaryRouter = router();
   Router api = primaryRouter.child('/tickets');
