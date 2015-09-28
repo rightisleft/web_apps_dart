@@ -19,7 +19,11 @@ main() async {
   var path = Platform.script.toFilePath();
   var currentDirectory = dirname(path);
   var fullPath  = join(currentDirectory, '..', 'build/web');
+
+  pritn('fullPath: ' + fullPath);
   var buildPath  = join(currentDirectory, '..', 'build');
+
+  pritn('buildPath: ' + buildPath);
 
   Router primaryRouter = router();
   Router api = primaryRouter.child('/tickets');
@@ -38,6 +42,7 @@ main() async {
   // this enables localhost debugging
   if( await new Directory(buildPath).exists() )
   {
+    print('serve build');
     Handler fHandler  = createStaticHandler(fullPath , defaultDocument: 'index.html');
     cc.add(fHandler);
   }
