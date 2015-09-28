@@ -21,7 +21,7 @@ main() async {
   var fullPath  = join(currentDirectory, '..', 'build/web');
   Handler fHandler  = createStaticHandler(fullPath, defaultDocument: 'index.html', serveFilesOutsidePath: true);
   print('fullPath: ' + fullPath);
-  
+
   var buildPath  = join(currentDirectory, '..', 'build');
   print('buildPath: ' + buildPath);
 
@@ -37,10 +37,12 @@ main() async {
   pl = pl.addMiddleware(corsMiddleWare).addMiddleware(mw);
   Handler apiHandler  = pl.addHandler(primaryRouter.handler);
 
-  Cascade cc = new Cascade().add(apiHandler);
+  Cascade cc;
   if(new Directory(buildPath).existsSync() )
   {
-    cc.add(fHandler);
+    Cascade cc = new Cascade().add(apiHandler).add(fHandler);
+  } else {
+    Cascade cc = new Cascade().add(apiHandler);
   }
 
   int http_port = int.parse(Platform.environment['PORT']);
