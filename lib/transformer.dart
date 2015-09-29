@@ -12,7 +12,7 @@ class IndexTransformer extends Transformer {
   IndexTransformer.asPlugin();
 
   Future<bool> isPrimary(AssetId id) async {
-    return id.path.indexOf('web/index.html') != -1;
+    return id.path == 'web/index.html';
   }
 
   Future apply(Transform transform) {
@@ -20,9 +20,12 @@ class IndexTransformer extends Transformer {
     var input = transform.primaryInput;
     return transform.readInputAsString(input.id).then((string){
       var document = parse(string);
+      print('start ports');
       String port = Platform.environment['PORT'];
       String env = Platform.environment['DART_ENV'];
       String tag = Platform.environment['INDEX_TRANSFORMER_TAG'];
+      print('PORT: ' + port);
+      print('DART_ENV: ' + tag);
       if(port != null  && tag != null)
       {
         List arr = document.getElementsByTagName(tag);
