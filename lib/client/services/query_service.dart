@@ -5,15 +5,8 @@ class FlightQueryService{
   String BASE;
   Dartson converter = new Dartson.JSON();
 
-  FlightQueryService() {
-    if(window.location.hostname.indexOf('localhost') != -1 ||
-      window.location.hostname.indexOf('127.0.0.1') != -1 ||
-        window.location.hostname.indexOf('0.0.0.0') != -1)
-    {
-       BASE = 'http://' + window.location.hostname + ':8080/tickets/';
-    } else {
-      BASE = 'http://' + window.location.hostname + '/tickets/';
-    }
+  FlightQueryService(){
+    this.BASE = 'http://' + window.location.hostname + ':' + EnvironmentVariables.PORT.toString() + '/tickets/';
   }
 
   Future postJson(url, data) {

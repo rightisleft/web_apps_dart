@@ -26,6 +26,7 @@ part 'components/topnav/topnav.component.dart';
 //injectables
 part 'services/query_service.dart';
 part 'services/shared_data.dart';
+part 'services/environment_variables.dart';
 
 part 'composite_views/view.complete.component.dart';
 part 'composite_views/view.flights.component.dart';
@@ -33,4 +34,6 @@ part 'composite_views/view.order.component.dart';
 part 'composite_views/view.landing.component.dart';
 
 //injectables
-const List<Type> client_classes = const [SharedData, FlightQueryService];
+const List<Type> client_classes = const [SharedData, FlightQueryService, EnvironmentVariables];
+
+

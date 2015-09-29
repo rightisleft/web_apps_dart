@@ -7,11 +7,13 @@ environment:
   sdk: '>=1.0.0 <2.0.0'
 dependencies:
 #Server Dependencies
+  barback: ^0.15.2
   json_object: "1.0.19"
   mongo_dart: "0.1.46"
   connection_pool: "0.1.0+2"
   dartson: "0.2.4"
   guinness: "0.1.17"
+  html: "0.12.2"
   shelf: '>=0.6.2 <0.7.0'
   shelf_static: "0.2.2"
   shelf_route: "0.14.0"
@@ -23,6 +25,7 @@ dependencies:
   angular2: "2.0.0-alpha.37"
   unittest: any
 transformers:
+- tickets
 - dartson
 - sass:
     executable:
