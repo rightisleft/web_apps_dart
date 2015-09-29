@@ -31,8 +31,11 @@ class IndexTransformer extends Transformer {
         {
           print('Found Tickets Element...');
           Element tickets = arr.first;
-          tickets.attributes['port'] = port ? port : '80';
           tickets.attributes['environment'] = env;
+
+          //default to 80 if in production
+          tickets.attributes['port'] = (env == 'production') ? '80' : port;
+
           print(document.outerHtml);
           transform.addOutput(new Asset.fromString(input.id, document.outerHtml ));
         }
