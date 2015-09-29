@@ -24,16 +24,14 @@ class IndexTransformer extends Transformer {
       String port = Platform.environment['PORT'];
       String env = Platform.environment['DART_ENV'];
       String tag = Platform.environment['INDEX_TRANSFORMER_TAG'];
-      print('PORT: ' + port);
-      print('DART_ENV: ' + tag);
-      if(port != null  && tag != null)
+      if(tag != null)
       {
         List arr = document.getElementsByTagName(tag);
         if(arr.length > 0)
         {
           print('Found Tickets Element...');
           Element tickets = arr.first;
-          tickets.attributes['port'] = port;
+          tickets.attributes['port'] = port ? port : '80';
           tickets.attributes['environment'] = env;
           print(document.outerHtml);
           transform.addOutput(new Asset.fromString(input.id, document.outerHtml ));
