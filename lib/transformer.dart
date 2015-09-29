@@ -5,12 +5,11 @@ import 'package:html/parser.dart';
 import 'package:html/dom.dart';
 
 class IndexTransformer extends Transformer {
-  BarbackSettings _settings;
   String index;
 
   IndexTransformer(this.index);
 
-  IndexTransformer.asPlugin(this._settings);
+  IndexTransformer.asPlugin();
 
   Future<bool> isPrimary(AssetId id) async {
     return id.path.indexOf('web/index.html') != -1;
