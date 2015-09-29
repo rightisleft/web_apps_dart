@@ -24,7 +24,7 @@ class IndexTransformer extends Transformer {
       String port = Platform.environment['PORT'];
       String env = Platform.environment['DART_ENV'];
       String tag = Platform.environment['INDEX_TRANSFORMER_TAG'];
-      if(port.isNotEmpty && tag.isNotEmpty)
+      if(port != null  && tag != null)
       {
         List arr = document.getElementsByTagName(tag);
         if(arr.length > 0)
