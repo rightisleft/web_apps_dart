@@ -37,7 +37,8 @@ class IndexTransformer extends Transformer {
           tickets.attributes['port'] = (env == 'production') ? '80' : port;
 
           print(document.outerHtml);
-          transform.addOutput(new Asset.fromString(input.id, document.outerHtml ));
+          Asset ast = new Asset.fromString(input.id, document.outerHtml);
+          transform.addOutput(ast);
         }
       }
     });

@@ -7,7 +7,7 @@ import 'dart:html';
 
 void main() {
 
-  // acquire config parameters from transformer
+  // acquire environment variables applied from transformer
   Element parent = querySelector('tickets');
   EnvironmentVariables.PORT = int.parse(parent.attributes['port']);
   EnvironmentVariables.DART_ENV = parent.attributes['environment'];

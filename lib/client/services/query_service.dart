@@ -6,7 +6,14 @@ class FlightQueryService{
   Dartson converter = new Dartson.JSON();
 
   FlightQueryService(){
-    this.BASE = 'http://' + window.location.hostname + ':' + EnvironmentVariables.PORT + '/tickets/';
+    // port is from environment variables locally
+    // for production it always uses 80
+    // see: IndexTransformer
+
+    this.BASE = 'http://'
+                + window.location.hostname
+                + ':' + EnvironmentVariables.PORT.toString()
+                + '/tickets/';
   }
 
   Future postJson(url, data) {

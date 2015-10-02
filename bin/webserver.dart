@@ -9,21 +9,9 @@ import 'package:shelf_static/shelf_static.dart';
 import 'ticketing_controller.dart' as controller;
 import 'package:logging/logging.dart';
 
-main() async {
-
-  Logger.root.level = Level.ALL;
-  Logger.root.onRecord.listen((LogRecord rec) {
-    print('${rec.level.name}: ${rec.time}: ${rec.message}');
-  });
-
+main()  {
   var path = Platform.script.toFilePath();
   var currentDirectory = dirname(path);
-  var fullPath  = join(currentDirectory, '..', 'build/web');
-  Handler fHandler  = createStaticHandler(fullPath, defaultDocument: 'index.html', serveFilesOutsidePath: true);
-  print('fullPath: ' + fullPath);
-
-  var buildPath  = join(currentDirectory, '..', 'build');
-  print('buildPath: ' + buildPath);
 
   Router primaryRouter = router();
   Router api = primaryRouter.child('/tickets');
@@ -37,18 +25,19 @@ main() async {
   pl = pl.addMiddleware(corsMiddleWare).addMiddleware(mw);
   Handler apiHandler  = pl.addHandler(primaryRouter.handler);
 
-  Cascade cc;
+  var buildPath  = join(currentDirectory, '..', 'build');
+  Cascade cc = new Cascade().add(apiHandler);
   if(new Directory(buildPath).existsSync() )
   {
-    cc = new Cascade().add(apiHandler).add(fHandler);
-  } else {
-    cc = new Cascade().add(apiHandler);
+    var fullPath  = join(currentDirectory, '..', 'build/web');
+    Handler fHandler  = createStaticHandler(fullPath, defaultDocument: 'index.html', serveFilesOutsidePath: true);
+    cc = cc.add(fHandler);
   }
 
   int http_port = int.parse(Platform.environment['PORT']);
-
   io.serve(cc.handler, '0.0.0.0',  http_port)
-      .then( (HttpServer server) => print( 'http serving on: ' + server.port.toString() ));
+      .then( (HttpServer server) => print( 'http serving on: '
+      + server.port.toString() ));
 }
 
 Map CORSHeader = {'content-type': 'text/json',
