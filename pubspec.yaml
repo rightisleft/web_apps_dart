@@ -28,7 +28,11 @@ transformers:
 - tickets
 - dartson
 - sass:
-    executable: sass
+      executable: sass     # Sass executable to use
+      compass: false                 # Include compass
+      line-numbers: false            # Include line numbers in output
+      style: false                # Style of generated CSS
+      copy-sources: false            # Copy original .scss/.sass files to out
 - angular2:
     entry_points:
         - web/main.dart
