@@ -5,7 +5,6 @@ class PurchaseDTO extends BaseDTO
 {
   String collection_key = "Purchases";
 
-  //should be nums
   int flightID;
   int flightLevel;
 

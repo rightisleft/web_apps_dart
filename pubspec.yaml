@@ -23,13 +23,11 @@ dependencies:
   intl: "0.12.4+2"
   sass: "0.4.2"
   angular2: "2.0.0-alpha.37"
-  unittest: any
+  unittest: "0.11.6+1"
 transformers:
 - tickets
 - dartson
-- sass:
-    executable:
-      sassc
+- sass
 - angular2:
     entry_points:
         - web/main.dart
