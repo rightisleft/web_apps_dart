@@ -27,7 +27,8 @@ dependencies:
 transformers:
 - tickets
 - dartson
-- sass
+- sass:
+    executable: sass
 - angular2:
     entry_points:
         - web/main.dart
