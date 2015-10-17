@@ -29,7 +29,6 @@ transformers:
 - dartson
 - sass:
       executable: sassc     # Sass executable to use
-      compass: false                 # Include compass
 - angular2:
     entry_points:
         - web/main.dart
