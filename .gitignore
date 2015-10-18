@@ -1,5 +1,6 @@
 .idea
 .pub
+.publock
 .packages
 packages
 build
