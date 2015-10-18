@@ -1,6 +1,6 @@
 .idea
 .pub
-.publock
+pubspec.lock
 .packages
 packages
 build
