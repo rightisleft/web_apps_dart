@@ -1,3 +1,5 @@
+library database_configuration;
+
 import 'dart:io';
 
 class DbConfigValues {

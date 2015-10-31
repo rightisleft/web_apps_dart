@@ -14,7 +14,7 @@ part of ticket_client;
         You're ticket has been purchased!
     </div>
     <div style="text-align: center;">
-        <a [router-link]="['/landing']" class="btn btn-warning">Return Home</a>
+        <a [router-link]="['/Landing']" class="btn btn-warning">Return Home</a>
     </div>
   '''
 )

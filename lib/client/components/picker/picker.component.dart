@@ -41,7 +41,7 @@ class Picker extends Object {
 
   onSubmit()
   {
-    Instruction _navInst = this._router.generate(['/picker', info.toPostable() ]);
-    this._router.navigateInstruction(_navInst);
+    Instruction _navInst = this._router.generate(['/Picker', info.toPostable() ]);
+    this._router.navigateByInstruction(_navInst);
   }
 }

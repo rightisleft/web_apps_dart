@@ -23,13 +23,13 @@ class Topnav{
   }
 
   void go(String url) {
-    this._router.navigate(url);
+    this._router.navigateByUrl(url);
   }
 
   List<NavButtonDTO> initbuttons() {
     List<NavButtonDTO> buttons = new List<NavButtonDTO>();
-    buttons.add( new NavButtonDTO()..route = "/home"..content="Home");
-    buttons.add( new NavButtonDTO()..route = "/flights"..content="Flights" );
+    buttons.add( new NavButtonDTO()..route = "/Home"..content="Home");
+    buttons.add( new NavButtonDTO()..route = "/Flights"..content="Flights" );
     return buttons;
   }
 }

@@ -3,7 +3,7 @@ import 'package:tickets/shared/schemas.dart';
 import 'package:tickets/db/seeder.dart';
 import 'package:tickets/db/db_config.dart';
 import '../bin/mongo_model.dart';
-import 'package:logging/logging.dart';
+
 main() {
 
 //  Logger.root.level = Level.ALL;

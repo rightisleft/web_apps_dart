@@ -8,12 +8,12 @@ part of ticket_client;
     directives: const [RouterOutlet]
 )
 @RouteConfig(const [
-  const Route(path: '/', component: ViewLanding, as: 'home'),
-  const Route(path: '/landing', component: ViewLanding, as: 'landing'),
-  const Route(path: '/flights', component: ViewFlights, as: 'flights'),
-  const Route(path: '/picker/:cityDepart/:cityArrival/:dateDepart/', component: ViewFlights, as: 'picker'),
-  const Route(path: '/order/:id/:level/:dateDepart/', component: ViewOrder, as: 'order'),
-  const Route(path: '/order/complete', component: ViewComplete, as: 'orderComplete')
+  const Route(path: '/', component: ViewLanding, as: 'Home'),
+  const Route(path: '/landing', component: ViewLanding, as: 'Landing'),
+  const Route(path: '/flights', component: ViewFlights, as: 'Flights'),
+  const Route(path: '/picker/:cityDepart/:cityArrival/:dateDepart/', component: ViewFlights, as: 'Picker'),
+  const Route(path: '/order/:id/:level/:dateDepart/', component: ViewOrder, as: 'Order'),
+  const Route(path: '/order/complete', component: ViewComplete, as: 'OrderComplete')
 ])
 class Tickets {
   String name = 'Jit Ticket Application';

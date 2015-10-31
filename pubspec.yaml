@@ -11,8 +11,7 @@ dependencies:
   json_object: "1.0.19"
   mongo_dart: "0.2.4"
   connection_pool: "0.1.0+2"
-  dartson:
-    git: "git@github.com:rightisleft/dartson.git"
+  dartson: "0.2.5"
   guinness: "0.1.17"
   html: "0.12.2"
   shelf: '>=0.6.2 <0.7.0'
@@ -23,7 +22,7 @@ dependencies:
   browser: ">=0.10.0+2 <0.11.0"
   intl: "0.12.4+2"
   sass: "0.4.2"
-  angular2: "2.0.0-alpha.37"
+  angular2: "2.0.0-alpha.45"
   unittest: "0.11.6+1"
 transformers:
 - tickets

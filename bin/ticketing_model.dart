@@ -15,6 +15,14 @@ class TicketingModel extends Object {
 
   Future createPurchase(Map params) async {
     var dson = new Dartson.JSON();
+
+    // Work Around for bug in dartson
+    // https://github.com/eredo/dartson/issues/27
+    params['ccv'] = params['ccv'].toString();
+    params['ccn'] = params['ccn'].toString();
+    params['bZip'] = params['bZip'].toString();
+
+
     PurchaseDTO purchaseDTO = dson.map(params, new PurchaseDTO() );
 
     TransactionDTO tDTO = new TransactionDTO();

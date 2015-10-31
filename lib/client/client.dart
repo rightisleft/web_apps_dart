@@ -6,9 +6,7 @@ import 'dart:convert';
 
 //angular2
 import 'package:angular2/angular2.dart';
-import 'package:angular2/bootstrap.dart';
 import 'package:angular2/router.dart';
-import 'package:angular2/angular2_exports.dart';
 
 //data
 import 'package:tickets/shared/schemas.dart';

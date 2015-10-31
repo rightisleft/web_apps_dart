@@ -13,6 +13,11 @@ main()  {
   var path = Platform.script.toFilePath();
   var currentDirectory = dirname(path);
 
+  Logger.root.level = Level.ALL;
+  Logger.root.onRecord.listen((LogRecord rec) {
+    print('${rec.level.name}: ${rec.time}: ${rec.message}');
+  });
+
   Router primaryRouter = router();
   Router api = primaryRouter.child('/tickets');
   api.add('/flight/{flight}', ['GET'], controller.handleFlightNumber);

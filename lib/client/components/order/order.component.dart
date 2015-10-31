@@ -15,7 +15,7 @@ class OrderForm extends Object {
   FlightQueryService _queryService;
   TimeDTO timeDTO;
   SharedData _shared;
-  PurchaseDTO dto;
+  PurchaseDTO dto = new PurchaseDTO();
 
   OrderForm(Router this._router, RouteParams this._routeParams, FlightQueryService this._queryService, SharedData this._shared) {
     fetch();
@@ -40,6 +40,6 @@ class OrderForm extends Object {
     var dson = new Dartson.JSON();
     String jsonString = dson.encode(dto);
     _shared.transaction = await _queryService.purchaseTicket(jsonString);
-    _router.navigate('/order/complete').then((item) => print(item) );
+    _router.navigate(['/OrderComplete']).then((item) => print(item) );
   }
 }

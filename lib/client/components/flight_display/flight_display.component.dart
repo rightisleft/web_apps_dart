@@ -51,7 +51,7 @@ class FlightDisplay extends Object {
     var post = params.toPostable();
     post['id'] = time.flight;
     post['level'] = service_level;
-    Instruction _navigationInstruction = router.generate(['/order', post]);
-    router.navigateInstruction(_navigationInstruction);
+    Instruction _navigationInstruction = router.generate(['/Order', post]);
+    router.navigateByInstruction(_navigationInstruction);
   }
 }
