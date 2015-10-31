@@ -9,7 +9,8 @@ dependencies:
 #Server Dependencies
   barback: ^0.15.2
   json_object: "1.0.19"
-  mongo_dart: "0.2.4"
+  mongo_dart:
+    git: "https://github.com/Pacane/mongo_dart"
   connection_pool: "0.1.0+2"
   dartson: "0.2.5"
   guinness: "0.1.17"
