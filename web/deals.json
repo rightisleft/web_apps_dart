@@ -7,7 +7,7 @@
       "description": "King Of Sour Dough!",
       "date": "10/29/2015",
       "image": "http://bit.ly/wiki_sfo",
-      "url": "/order/1001/3/2015-10-29/2015-11-02/"
+      "url": "/#/picker/SAN/SFO/2015-10-29/"
     },
     {
       "city_arrival" : "LAX",
@@ -16,7 +16,7 @@
       "description": "Surf & Sand!",
       "date": "10/30/2015",
       "image": "http://bit.ly/wiki_lax",
-      "url": "/order/1026/3/2015-10-30/2015-11-03/"
+      "url": "/#/picker/LAX/SFO/2015-10-30/"
     },
     {
       "city_arrival" : "SAC",
@@ -25,7 +25,7 @@
       "description": "Visit The State Capital!",
       "date": "10/31/2015",
       "image": "http://bit.ly/wiki_sac",
-      "url": "/order/1025/3/2015-10-31/2015-11-03/"
+      "url": "/#/picker/SMF/SAN/2015-10-31/"
     }
   ]
 }
