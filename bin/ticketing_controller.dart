@@ -8,7 +8,7 @@ import 'dart:convert';
 import 'package:dartson/dartson.dart';
 
 TicketingModel model = new TicketingModel();
-var converter = new Dartson.JSON();
+Dartson converter = new Dartson.JSON();
 
 Future <Response> handleCities(Request request) {
   return _genericJsonHandler(model.getAllCities, request);

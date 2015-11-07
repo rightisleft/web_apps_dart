@@ -13,14 +13,12 @@ class TicketingModel extends Object {
     _mongo = new MongoModel(config.dbName, config.dbURI, config.dbSize);
   }
 
+  final Dartson dson = new Dartson.JSON();
   Future createPurchase(Map params) async {
-    var dson = new Dartson.JSON();
-
-    // Work Around for bug in dartson
-    // https://github.com/eredo/dartson/issues/27
-    params['ccv'] = params['ccv'].toString();
-    params['ccn'] = params['ccn'].toString();
-    params['bZip'] = params['bZip'].toString();
+    //Work Around for dartson bug - https://github.com/eredo/dartson/issues/27
+//    params['ccv'] = params['ccv'].toString();
+//    params['ccn'] = params['ccn'].toString();
+//    params['bZip'] = params['bZip'].toString();
 
 
     PurchaseDTO purchaseDTO = dson.map(params, new PurchaseDTO() );

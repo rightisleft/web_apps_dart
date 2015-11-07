@@ -11,20 +11,20 @@ class MongoModel {
 
   MongoPool _dbPool;
 
-  MongoModel(String _databaseName, String _databaseUrl, int _databasePoolSize) {
-    _dbPool = new MongoPool(_databaseUrl + _databaseName, _databasePoolSize);
+  MongoModel(String databaseName, String databaseUrl, int databasePoolSize) {
+    _dbPool = new MongoPool(databaseUrl + databaseName, databasePoolSize);
   }
 
-  Future<Map> createByItem(BaseDTO item) {
+  Future<BaseDTO> createByItem(BaseDTO item) {
     assert(item.id == null);
-    item.id = new ObjectId();
+    item.id = new ObjectId().toString();
     return _dbPool.getConnection().then((ManagedConnection mc) {
       Db db = mc.conn;
       DbCollection collection = db.collection(item.collection_key);
       Map aMap = dtoToMongoMap(item);
       return collection.insert(aMap).then((status) {
         _dbPool.releaseConnection(mc);
-        return (status['ok'] == 1) ? item : status;
+        return (status['ok'] == 1) ? item : null;
       });
     });
   }
@@ -101,7 +101,7 @@ class MongoModel {
       Db database = mc.conn;
       DbCollection collection = new DbCollection(database, collectionName);
       SelectorBuilder builder = where.oneFrom(fieldName, values);
-      return await collection.find( builder ).toList().then((map) {
+      return collection.find( builder ).toList().then((map) {
         _dbPool.releaseConnection(mc);
         return map;
       });
@@ -128,7 +128,7 @@ class MongoModel {
 
   dynamic mapToDto(cleanObject, Map document) {
     var reflection = reflect(cleanObject);
-    document['id'] = document['_id'];
+    document['id'] = document['_id'].toString();
     document.remove('_id');
     document.forEach((k, v) {
       reflection.setField(new Symbol(k), v);
@@ -148,7 +148,7 @@ class MongoModel {
           if (!value.isFinal) {
             target[MirrorSystem.getName(value.simpleName)] = reflection.getField(value.simpleName).reflectee;
           }
-        };
+        }
       });
       type = type.superclass;
       // get properties from superclass too!

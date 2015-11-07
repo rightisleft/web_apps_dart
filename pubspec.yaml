@@ -7,7 +7,7 @@ environment:
   sdk: '>=1.0.0 <2.0.0'
 dependencies:
 #Server Dependencies
-  barback: ^0.15.2
+  barback: ">=0.15.2+2 <0.16.0"
   json_object: "1.0.19"
   mongo_dart:
     git: "https://github.com/Pacane/mongo_dart"

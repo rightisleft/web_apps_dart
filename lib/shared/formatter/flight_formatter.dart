@@ -1,6 +1,6 @@
 part of ticket_schemas;
 
-class FlightFormatter {
+class FlightFormatter  {
   String cityDepart;
   String cityArrival;
   String dateDepart;
