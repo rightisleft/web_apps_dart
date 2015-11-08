@@ -1,8 +1,7 @@
 part of ticket_client;
 
 @Component(
-    selector: "landing",
-    inputs: const['deals']
+    selector: "landing"
 )
 @View (
     templateUrl: "package:tickets/client/components/landing/landing.html",

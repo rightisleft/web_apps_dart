@@ -19,7 +19,6 @@ class Topnav{
     print('-- Topnav Init --');
     _router = router;
     buttons = initbuttons();
-    buttons.forEach((NavButtonDTO dto) => dto.isActive = dto.route == "");
   }
 
   void go(String url) {
@@ -37,5 +36,4 @@ class Topnav{
 class NavButtonDTO {
   String route;
   String content;
-  bool isActive;
 }
