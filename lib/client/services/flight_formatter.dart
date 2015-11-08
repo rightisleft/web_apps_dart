@@ -18,12 +18,12 @@ class FlightFormatter {
   }
 
   Map toPostable() {
-    var f = new DateFormat('yyyy-MM-dd');
+    DateFormat dtf = new DateFormat('yyyy-MM-dd');
     _dateDepart = DateTime.parse(dateDepart);
     return {
       'cityDepart': cityDepart,
       'cityArrival': cityArrival,
-      'dateDepart': f.format(_dateDepart)
+      'dateDepart': dtf.format(_dateDepart)
     };
   }
 }
