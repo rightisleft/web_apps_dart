@@ -11,6 +11,7 @@ import 'package:angular2/router.dart';
 //data
 import 'package:tickets/shared/schemas.dart';
 import 'package:dartson/dartson.dart';
+import "package:intl/intl.dart";
 
 //components
 part 'main.ticket.component.dart';
@@ -25,6 +26,7 @@ part 'components/topnav/topnav.component.dart';
 part 'services/query_service.dart';
 part 'services/shared_data.dart';
 part 'services/environment_variables.dart';
+part 'services/flight_formatter.dart';
 
 part 'composite_views/view.complete.component.dart';
 part 'composite_views/view.flights.component.dart';

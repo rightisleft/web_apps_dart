@@ -35,7 +35,7 @@ class Picker extends Object {
   void populateState() {
     if(routeParams.params != null && routeParams.params.isNotEmpty )
     {
-      info = info.setup(routeParams.params, info);
+      info = new FlightFormatter.FromPost(routeParams.params);
     }
   }
 
