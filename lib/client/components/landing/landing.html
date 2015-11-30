@@ -1,0 +1,12 @@
+<div class="row">
+  <div *ng-for="#aDeal of deals; #i=index" class="col-xs-4">
+    <div class="deal-box well clearfix">
+      <img [src]=" aDeal['image']" alt="">
+      <h3>{{ aDeal['city_departure'] + " to " + aDeal['city_arrival'] }}</h3>
+      <h4>{{ aDeal['date'] }}</h4>
+      <p>{{ aDeal['description'] }}</p>
+      <h5>{{ aDeal['price'] }}</h5>
+      <a [href]="aDeal['url']" class="btn btn-info">Buy</a>
+    </div>
+  </div>
+</div>

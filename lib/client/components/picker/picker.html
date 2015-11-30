@@ -1,0 +1,30 @@
+<a [router-link]="['/Picker', {'cityDepart': 'SAN', 'cityArrival': 'SFO', 'dateDepart': '2015-01-01'}]">Quick Link</a>
+
+<form (submit)="onFind()" novalidate class="clearfix">
+  <div class="group">
+    <select id="city-depart" [(ng-model)]='info.cityDepart' class="form-control">
+      <option *ng-for="#vo of cities" [value]="vo.airportcode">{{ vo.city }}</option>
+    </select>
+    <label for="city-depart">Departure</label>
+  </div>
+
+  <div class="group">
+    <select id="city-arrive" [(ng-model)]='info.cityArrival' class="form-control">
+      <option *ng-for="#vo of cities"
+              [value]="vo.airportcode"
+              selected="true">{{ vo.city }}
+      </option>
+    </select>
+    <label for="city-depart">Arrival</label>
+  </div>
+
+  <div class="group">
+    <input type="date" name="date-depart" id="date-depart" [(ng-model)]="info.dateDepart" class="form-control">
+    <label for="date-depart">Depart Date</label>
+  </div>
+
+  <div class="group">
+    <button class="btn btn-warning" type="submit">View Flights</button>
+  </div>
+
+</form>
