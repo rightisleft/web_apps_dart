@@ -27,6 +27,10 @@ main() {
 
   describe('Ticketing Model', () {
 
+    // make sure that createPurchase() converts the ObjectID to a String
+    // purchaseDTO.transactionId = tDTO.id.toString();
+    // this was an editing error in the print version!
+
     it("should create a purchase object", () async {
       return model.createPurchase(postPurchase).then((PurchaseDTO confirmation){
         expect(confirmation.collection_key).toBe('Purchases');
