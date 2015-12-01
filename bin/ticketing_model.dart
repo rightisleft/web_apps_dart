@@ -15,19 +15,13 @@ class TicketingModel extends Object {
 
   final Dartson dson = new Dartson.JSON();
   Future createPurchase(Map params) async {
-    //Work Around for dartson bug - https://github.com/eredo/dartson/issues/27
-//    params['ccv'] = params['ccv'].toString();
-//    params['ccn'] = params['ccn'].toString();
-//    params['bZip'] = params['bZip'].toString();
-
-
     PurchaseDTO purchaseDTO = dson.map(params, new PurchaseDTO() );
 
     TransactionDTO tDTO = new TransactionDTO();
     tDTO.paid = 1000;  //we're faking a successful creditcard payment
     tDTO.user = purchaseDTO.pEmail;
     await _mongo.createByItem(tDTO);
-    purchaseDTO.transactionId = tDTO.id.toString();
+    purchaseDTO.transactionId = tDTO.id;
     return _mongo.createByItem(purchaseDTO);
   }
 
