@@ -14,14 +14,14 @@ import 'package:dartson/dartson.dart';
 import "package:intl/intl.dart";
 
 //components
-part 'main.tickets.component.dart';
-part 'components/landing/landing.component.dart';
-part 'components/topnav/topnav.component.dart';
+part 'main_tickets_component.dart';
+part 'components/landing/landing_component.dart';
+part 'components/topnav/topnav_component.dart';
 
- part 'components/flight_display/flight_display.component.dart';
- part 'components/order/order.component.dart';
- part 'components/order/recap.component.dart';
- part 'components/picker/picker.component.dart';
+ part 'components/flight_display/flight_display_component.dart';
+ part 'components/order/order_component.dart';
+ part 'components/order/recap_component.dart';
+ part 'components/picker/picker_component.dart';
 
 
  part 'services/query_service.dart';
@@ -29,10 +29,10 @@ part 'components/topnav/topnav.component.dart';
  part 'services/flight_formatter.dart';
 part 'services/environment_variables.dart';
 
- part 'composite_views/view.complete.component.dart';
- part 'composite_views/view.flights.component.dart';
- part 'composite_views/view.order.component.dart';
- part 'composite_views/view.landing.component.dart';
+ part 'composite_views/view_complete_component.dart';
+ part 'composite_views/view_flights_component.dart';
+ part 'composite_views/view_order_component.dart';
+ part 'composite_views/view_landing_component.dart';
 
 
 //injectables
