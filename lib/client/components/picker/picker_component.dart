@@ -43,7 +43,7 @@ class Picker extends Object {
   {
     if( info.isSelected() ) {
       var linkParams = ['/Picker', info.toPostable() ];
-      Instruction _navInst = this.router.generate();
+      Instruction _navInst = this.router.generate(linkParams);
       this.router.navigateByInstruction(_navInst);
       return;
     } else {
